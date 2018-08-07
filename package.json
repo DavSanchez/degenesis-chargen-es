@@ -1,0 +1,28 @@
+{
+  "name": "degenesis-chargen-es",
+  "version": "1.0.0",
+  "description": "A character generator for the Degenesis roleplaying game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavSanchez/degenesis-chargen-es.git"
+  },
+  "keywords": [
+    "degenesis",
+    "character",
+    "generator"
+  ],
+  "author": "DavSanchez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavSanchez/degenesis-chargen-es/issues"
+  },
+  "homepage": "https://github.com/DavSanchez/degenesis-chargen-es#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
+  }
+}
