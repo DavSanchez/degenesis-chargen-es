@@ -63,16 +63,50 @@ class DegenesisChar {
             secretos: 0
         }
         this.condicion = {
-            ego: ((this.cuerpo + this.resistencia) * 2),
-            infestacionEsporas: (),
-            heridasSuperficiales: (),
-            trauma: (this.cuerpo + this.psique)
+            ego: function() {
+                this.psique.fe
+                    ? (this.psique.valor + this.psique.fe) * 2
+                    : (this.psique.valor + this.psique.voluntad) * 2
+            },
+            infestacionEsporas: function() {
+                this.intelecto.concentracion
+                    ? (this.intelecto.valor + this.intelecto.concentracion) * 2
+                    : (this.instinto.valor + this.instinto.primordial) * 2
+            },
+            heridasSuperficiales:
+                (this.cuerpo.valor + this.cuerpo.resistencia) * 2,
+            trauma: this.cuerpo.valor + this.psique.valor
         }
-        this.potenciales = {}
+        this.potenciales = new Array()
         this.equipo = {
-            armas: {},
-            proteccion: {},
-            otros: {}
+            armas: new Array(),
+            proteccion: new Array(),
+            otros: new Array()
         }
+    }
+}
+
+class Potencial {
+    constructor(nombre, nivel) {
+        this.nombre = nombre
+        this.nivel = nivel
+    }
+}
+
+class Arma {
+    constructor(nombre) {
+        this.nombre = nombre
+    }
+}
+
+class Proteccion {
+    constructor(nombre) {
+        this.nombre = nombre
+    }
+}
+
+class Equipo {
+    constructor(nombre) {
+        this.nombre = nombre
     }
 }
