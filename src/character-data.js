@@ -110,3 +110,11 @@ class Equipo {
         this.nombre = nombre
     }
 }
+
+/* Exports to use with Node.js ¿? */
+
+module.exports = DegenesisChar
+module.exports = Potencial
+module.exports = Arma
+module.exports = Proteccion
+module.exports = Equipo
