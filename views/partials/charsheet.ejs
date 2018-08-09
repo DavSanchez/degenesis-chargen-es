@@ -1,238 +1,366 @@
-<div class="container" id="main-charsheet">
-    <!-- Name, age, culture, concept, cult-->
-    <div class="row" id="char-header">
-        <div class="col-sm text-center">PERSONAJE</div>
-    </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <div class="container" id="main-charsheet">
+                <!-- Name, age, culture, concept, cult-->
+                <div class="row" id="char-header">
+                    <div class="col-sm text-center">PERSONAJE</div>
+                </div>
 
-    <!-- Body, Agility, Charisma -->
-    <div class="row" id="attributes-1">
-        <div class="col-sm" id="attr-body">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="row">CUERPO</th>
-                        <th scope="row">[VALOR]</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-sm" id="attr-agility">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="row">AGILIDAD</th>
-                        <th scope="row">[VALOR]</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-sm" id="attr-charisma">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="row">CARISMA</th>
-                        <th scope="row">[VALOR]</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+                <!-- Body, Agility, Charisma -->
+                <div class="row" id="attributes-1">
+                    <div class="col-sm" id="attr-body">
+                        <table class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class="col-6">CUERPO</th>
+                                    <th scope="col" class="col-6">[VALOR]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">ATLETISMO</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">CUERPO A CUERPO</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">FUERZA</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">PELEA</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">RESISTENCIA</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">VIGOR</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm" id="attr-agility">
+                        <table class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class="col-6">AGILIDAD</th>
+                                    <th scope="col" class="col-6">[VALOR]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">CONDUCIR</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">DESTREZA</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">FABRICAR</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">MOVILIDAD</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">PROYECTILES</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">SIGILO</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm" id="attr-charisma">
+                        <table class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class="col-6">CARISMA</th>
+                                    <th scope="col" class="col-6">[VALOR]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">ARTE</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">CONDUCTA</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">EXPRESIÓN</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">LIDERAZGO</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">NEGOCIACIÓN</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">SEDUCCIÓN</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-    <!-- Intellect, Psyche, Instinct -->
-    <div class="row" id="attributes-2">
-        <div class="col-sm" id="attr-intellect">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="row">INTELECTO</th>
-                        <th scope="row">[VALOR]</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-            </table>
-        </div>
-        <div class="col-sm" id="attr-psyche">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="row">PSIQUE</th>
-                        <th scope="row">[VALOR]</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-            </table>
-        </div>
-        <div class="col-sm" id="attr-instinct">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="row">INSTINTO</th>
-                        <th scope="row">[VALOR]</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>[VALOR]</td>
-                    </tr>
-            </table>
-        </div>
-    </div>
+                <!-- Intellect, Psyche, Instinct -->
+                <div class="row" id="attributes-2">
+                    <div class="col-sm" id="attr-intellect">
+                        <table class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class="col-6">INTELECTO</th>
+                                    <th scope="col" class="col-6">[VALOR]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">ARTEFACTOS</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">CONCENTRACIÓN</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">CIENCIA</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">INGENIERÍA</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">LEYENDAS</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">MEDICINA</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                        </table>
+                    </div>
+                    <div class="col-sm" id="attr-psyche">
+                        <table class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class="col-6">PSIQUE</th>
+                                    <th scope="col" class="col-6">[VALOR]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">ASTUCIA</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">DOMINACIÓN</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ENGAÑO</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">FE</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">REACCIÓN</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">VOLUNTAD</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                        </table>
+                    </div>
+                    <div class="col-sm" id="attr-instinct">
+                        <table class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class="col-6">INSTINTO</th>
+                                    <th scope="col" class="col-6">[VALOR]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">DOMA</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">EMPATÍA</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ORIENTACIÓN</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">PERCEPCIÓN</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">PRIMORDIAL</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">SUPERVIVENCIA</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                        </table>
+                    </div>
+                </div>
 
-    <!-- Origins, Ego, Wounds, Spore, Potentials -->
-    <div class="row" id="attributes-3">
-        <div class="col-sm" id="origins">ORÍGENES</div>
-        <div class="col-sm-6 text-center" id="condition">CONDICIÓN</div>
-        <div class="col-sm" id="potentials">POTENCIALES</div>
-    </div>
-    <!-- Equipment -->
-    <div class="row" id="equipment">
-        <div class="col-sm">EQUIPO</div>
+                <!-- Origins, Ego, Wounds, Spore, Potentials -->
+                <div class="row" id="attributes-3">
+                    <div class="col-sm" id="origins">
+                        <table class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">ORÍGENES</th>
+                                    <th scope="col">[VALOR]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">ALIADOS</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">AUTORIDAD</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">RED</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">RENOMBRE</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">RECURSOS</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">SECRETOS</th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-6 text-center" id="condition">
+                        <table class="table table-hover table-sm" id="ego">
+                            <thead class="thead">
+                                <tr>
+                                    <th scope="col">EGO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>[VALOR]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-hover table-sm" id="infest-esporas">
+                            <thead class="thead">
+                                <tr>
+                                    <th scope="col">INFESTACIÓN DE ESPORAS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>[VALOR]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-hover table-sm" id="heridas-superf">
+                            <thead class="thead">
+                                <tr>
+                                    <th scope="col">HERIDAS SUPERFICIALES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>[VALOR]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-hover table-sm" id="trauma">
+                            <thead class="thead">
+                                <tr>
+                                    <th scope="col">TRAUMA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>[VALOR]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm" id="potentials">
+                        <table class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">POTENCIALES</th>
+                                    <th scope="col">[VALOR]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td>[VALOR]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Equipment -->
+                <div class="row" id="equipment">
+                    <div class="col-sm">EQUIPO</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+
+        </div>
     </div>
 </div>
