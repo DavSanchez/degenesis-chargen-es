@@ -6,8 +6,6 @@
 </head>
 
 <body>
-
-
     <div class="container">
         <p>
             Aquí crearemos un generador de personajes para el juego de rol Degenesis. La idea es que sirva sobre todo para crear PNJs
@@ -22,9 +20,21 @@
         <p>¡Saluditos!</p>
     </div>
 
-    <% include ../partials/charsheet.ejs %>
-
-        <% include ../partials/body-end.ejs %>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-7">
+                <% include ../partials/charsheet.ejs %>
+            </div>
+            <div class="col-xl-5">
+                <p>AQUÍ SALDRÁN LOS RESULTADOS EN PLAN HOJA RESUMIDA PARA PNJs</p>
+                <!-- TODO -->
+            </div>
+        </div>
+        <div class="container-fluid">
+            <br>
+        </div>
+    </div>
+    <% include ../partials/body-end.ejs %>
 </body>
 
 </html>
