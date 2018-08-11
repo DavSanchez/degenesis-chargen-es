@@ -90,24 +90,28 @@ class Potencial {
     constructor(nombre, nivel) {
         this.nombre = nombre
         this.nivel = nivel
+        //this.descripcion = descripcion
     }
 }
 
 class Arma {
     constructor(nombre) {
         this.nombre = nombre
+        //this.descripcion = descripcion
     }
 }
 
 class Proteccion {
     constructor(nombre) {
         this.nombre = nombre
+        //this.descripcion = descripcion
     }
 }
 
 class Equipo {
     constructor(nombre) {
         this.nombre = nombre
+        //this.descripcion = descripcion
     }
 }
 
