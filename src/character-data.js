@@ -64,14 +64,14 @@ class DegenesisChar {
         }
         this.condicion = {
             ego: function() {
-                this.psique.fe
-                    ? (this.psique.valor + this.psique.fe) * 2
-                    : (this.psique.valor + this.psique.voluntad) * 2
+                this.psique.fe === null
+                    ? (this.psique.valor + this.psique.voluntad) * 2
+                    : (this.psique.valor + this.psique.fe) * 2
             },
             infestacionEsporas: function() {
-                this.intelecto.concentracion
-                    ? (this.intelecto.valor + this.intelecto.concentracion) * 2
-                    : (this.instinto.valor + this.instinto.primordial) * 2
+                this.intelecto.concentracion === null
+                    ? (this.instinto.valor + this.instinto.primordial) * 2
+                    : (this.intelecto.valor + this.intelecto.concentracion) * 2
             },
             heridasSuperficiales:
                 (this.cuerpo.valor + this.cuerpo.resistencia) * 2,
@@ -80,9 +80,37 @@ class DegenesisChar {
         this.potenciales = new Array()
         this.equipo = {
             armas: new Array(),
-            proteccion: new Array(),
+            protecciones: new Array(),
             otros: new Array()
         }
+    }
+    addPotential(potencial) {
+        this.potenciales.push(potencial)
+    }
+    addWeapon(arma) {
+        this.armas.push(arma)
+    }
+    addProtection(proteccion) {
+        this.proteccion.push(proteccion)
+    }
+    addEquipment(equipo) {
+        this.otros.push(equipo)
+    }
+    selectFaith() {
+        this.psique.fe = 0
+        this.psique.voluntad = null
+    }
+    selectWill() {
+        this.psique.fe = null
+        this.psique.voluntad = 0
+    }
+    selectFocus() {
+        this.intelecto.concentracion = 0
+        this.instinto.primordial = null
+    }
+    selectPrimal() {
+        this.intelecto.concentracion = null
+        this.instinto.primordial = 0
     }
 }
 
@@ -115,10 +143,10 @@ class Equipo {
     }
 }
 
-/* Exports to use with Node.js ¿? */
-
-module.exports = DegenesisChar
-module.exports = Potencial
-module.exports = Arma
-module.exports = Proteccion
-module.exports = Equipo
+module.exports = {
+    DegenesisChar: DegenesisChar,
+    Potencial: Potencial,
+    Arma: Arma,
+    Proteccion: Proteccion,
+    Equipo: Equipo
+}
