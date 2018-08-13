@@ -56,13 +56,13 @@ const colectivoValues = [
 
 // KEEP TRACK OF FAITH/WILL AND FOCUS/PRIMAL
 const faithText = document.getElementById("faith-text")
-const faithValue = document.getElementById("faith-value")
+const faithValue = document.getElementById("faith")
 const willpowerText = document.getElementById("willpower-text")
-const willpowerValue = document.getElementById("willpower-value")
+const willpowerValue = document.getElementById("willpower")
 const focusText = document.getElementById("focus-text")
-const focusValue = document.getElementById("focus-value")
+const focusValue = document.getElementById("focus")
 const primalText = document.getElementById("primal-text")
-const primalValue = document.getElementById("primal-value")
+const primalValue = document.getElementById("primal")
 
 const fillDropdown = function(valuesArray, dropDown) {
     let fragment = document.createDocumentFragment()
@@ -88,39 +88,47 @@ window.onload = function() {
     // INITIAL STATE OF FAITH AND FOCUS IMPLIES WILL AND PRIMAL ARE DEACTIVATED
     willpowerText.style.setProperty("text-decoration", "line-through")
     willpowerValue.disabled = true
+    willpowerValue.value = null
 
     primalText.style.setProperty("text-decoration", "line-through")
     primalValue.disabled = true
+    primalValue.value = null
 }
 
 const faithOrWill = elem => {
     if (elem.value === "FE") {
         willpowerText.style.setProperty("text-decoration", "line-through")
         willpowerValue.disabled = true
-        willpowerValue.value = 0
+        willpowerValue.value = null
         faithText.style.setProperty("text-decoration", "none")
         faithValue.disabled = false
+        faithValue.value = 0
     } else {
         willpowerText.style.setProperty("text-decoration", "none")
         willpowerValue.disabled = false
+        willpowerValue.value = 0
         faithText.style.setProperty("text-decoration", "line-through")
         faithValue.disabled = true
-        faithValue.value = 0
+        faithValue.value = null
     }
+    updateLocalCharacter()
 }
 
 const focusOrPrimal = elem => {
     if (elem.value === "CONCENTRACIÓN") {
         primalText.style.setProperty("text-decoration", "line-through")
         primalValue.disabled = true
-        primalValue.value = 0
+        primalValue.value = null
         focusText.style.setProperty("text-decoration", "none")
         focusValue.disabled = false
+        focusValue.value = 0
     } else {
         primalText.style.setProperty("text-decoration", "none")
         primalValue.disabled = false
+        primalValue.value = 0
         focusText.style.setProperty("text-decoration", "line-through")
         focusValue.disabled = true
-        focusValue.value = 0
+        focusValue.value = null
     }
+    updateLocalCharacter()
 }

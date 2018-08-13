@@ -27,18 +27,20 @@
             </div>
             <div class="col-xl-5">
                 <p>AQUÍ SALDRÁN LOS RESULTADOS EN PLAN HOJA RESUMIDA PARA PNJs</p>
-                <!-- TODO -->
+                <!-- < % include ../partials/char-output.ejs % > -->
             </div>
         </div>
         <div class="container-fluid">
             <br>
         </div>
     </div>
+
+    <script>
+        const localCharacter = <%- JSON.stringify(charObject) %>
+    </script>
+
     <% include ../partials/body-end.ejs %>
 
-        <script>
-            const character = <%- JSON.stringify(charExample) %>
-        </script>
 </body>
 
 </html>
