@@ -1,3 +1,5 @@
+let localCharacter = new DegenesisChar()
+
 const statValue = e => document.getElementById(e.toString()).value
 const attributes = [
     "bodyAttr",
@@ -11,7 +13,7 @@ const attributes = [
 const updateLocalCharacter = () => {
     attributes.forEach(updateCharAttribute)
 
-    localCharacter.updateCondition
+    localCharacter.calculateCondition()
 
     document.getElementById("ego").innerHTML = Number(
         localCharacter.condition.ego
@@ -32,5 +34,6 @@ const updateCharAttribute = attribute => {
         statValue(key) === null
             ? (localCharacter[attribute][key] = null)
             : (localCharacter[attribute][key] = Number(statValue(key)))
+        console.log(attribute)
     }
 }

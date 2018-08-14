@@ -75,7 +75,7 @@ const fillDropdown = function(valuesArray, dropDown) {
     dropDown.appendChild(fragment)
 }
 
-window.onload = function() {
+window.onload = () => {
     // POPULATE DROPDOWN LISTS
     const culturaDropDown = document.getElementById("cultura")
     const conceptoDropDown = document.getElementById("concepto")

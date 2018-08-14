@@ -119,11 +119,3 @@ class Equipo {
         //this.descripcion = descripcion
     }
 }
-
-module.exports = {
-    DegenesisChar: DegenesisChar,
-    Potencial: Potencial,
-    Arma: Arma,
-    Proteccion: Proteccion,
-    Equipo: Equipo
-}
