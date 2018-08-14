@@ -91,31 +91,31 @@ class DegenesisChar {
     }
 }
 
-class Potencial {
+class Potential {
     constructor(nombre, nivel) {
         this.nombre = nombre
         this.nivel = nivel
-        //this.descripcion = descripcion
+    //this.descripcion = descripcion
     }
 }
 
-class Arma {
+class Weapon {
     constructor(nombre) {
         this.nombre = nombre
-        //this.descripcion = descripcion
+    //this.descripcion = descripcion
     }
 }
 
-class Proteccion {
+class Protection {
     constructor(nombre) {
         this.nombre = nombre
-        //this.descripcion = descripcion
+    //this.descripcion = descripcion
     }
 }
 
-class Equipo {
+class Equipment {
     constructor(nombre) {
         this.nombre = nombre
-        //this.descripcion = descripcion
+    //this.descripcion = descripcion
     }
 }
