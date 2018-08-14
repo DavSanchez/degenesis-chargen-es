@@ -5,5 +5,5 @@
 
 /* true styling */
 select.form-control.numeric {
-  width: auto;
+  width: max-content;
 }
