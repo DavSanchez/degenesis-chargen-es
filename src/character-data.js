@@ -12,7 +12,7 @@ class DegenesisChar {
         this.agilityAttr = {
             agility: 1,
             navigation: 0,
-            deterity: 0,
+            dexterity: 0,
             crafting: 0,
             mobility: 0,
             projectiles: 0,
@@ -63,7 +63,7 @@ class DegenesisChar {
             secrets: 0
         }
         this.condition = {
-            ego: 0,
+            ego: 2,
             sporeInfestations: 2,
             fleshwounds: 2,
             trauma: 2
@@ -74,76 +74,23 @@ class DegenesisChar {
             protections: new Array(),
             other: new Array()
         }
+        this.updateCondition = this.calculateCondition // WAT
     }
 
-    addPotential(potential) {
-        this.potentials.push(potential)
-    }
-    addWeapon(weapon) {
-        this.weapons.push(weapon)
-    }
-    addProtection(protection) {
-        this.protections.push(protection)
-    }
-    addOtherEquipment(item) {
-        this.other.push(item)
-    }
-
-    updateCondition() {
+    calculateCondition() {
+        // THIS IS WRONG AND I DON'T KNOW WHY
         this.condition.ego =
-            this.psycheAttr.faith === null
-                ? (this.psycheAttr.psyche + this.psyche.willpower) * 2
-                : (this.psycheAttr.psyche + this.psycheAttr.faith) * 2
-
-        this.condition.sporeInfestations =
             this.intellectAttr.focus === null
                 ? (this.instinctAttr.instinct + this.instinctAttr.primal) * 2
-                : (this.intellectAttr.intellect + this.intellect.focus) * 2
-
+                : (this.intellectAttr.intellect + this.intellectAttr.focus) * 2
+        this.condition.sporeInfestations =
+            this.psycheAttr.faith === null
+                ? (this.psycheAttr.psyche + this.psycheAttr.willpower) * 2
+                : (this.psycheAttr.psyche + this.psycheAttr.psyche) * 2
         this.condition.fleshwounds =
             (this.bodyAttr.body + this.bodyAttr.toughness) * 2
-
         this.condition.trauma = this.bodyAttr.body + this.psycheAttr.psyche
     }
-
-    get egoValue() {
-        this.updateCondition()
-        return this.condition.ego
-    }
-
-    get sporeInfestationsValue() {
-        this.updateCondition()
-        return this.condition.sporeInfestations
-    }
-
-    get fleshwoundsValue() {
-        this.updateCondition()
-        return this.condition.fleshwounds
-    }
-
-    get traumaValue() {
-        this.updateCondition()
-        return this.condition.trauma
-    }
-
-    /*
-    selectFaith() {
-        this.psycheAttr.faith = 0
-        this.psycheAttr.willpower = null
-    }
-    selectWill() {
-        this.psycheAttr.faith = null
-        this.psycheAttr.willpower = 0
-    }
-    selectFocus() {
-        this.intellectAttr.focus = 0
-        this.instinctAttr.primal = null
-    }
-    selectPrimal() {
-        this.intellectAttr.focus = null
-        this.instinctAttr.primal = 0
-    }
-    */
 }
 
 class Potencial {

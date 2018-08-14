@@ -1,40 +1,36 @@
-// Browser won't find DegenesisChar!!
-
-//let character = new DegenesisChar()
-
-const statValue = e => document.getElementById(e).value
+const statValue = e => document.getElementById(e.toString()).value
+const attributes = [
+    "bodyAttr",
+    "agilityAttr",
+    "charismaAttr",
+    "intellectAttr",
+    "psycheAttr",
+    "instinctAttr"
+]
 
 const updateLocalCharacter = () => {
-    for (let key in localCharacter["bodyAttr"]) {
-        localCharacter["bodyAttr"][key] = Number(statValue(key))
-    }
+    attributes.forEach(updateCharAttribute)
 
-    for (let key in localCharacter["agilityAttr"]) {
-        localCharacter["agilityAttr"][key] = Number(statValue(key))
-    }
+    localCharacter.updateCondition
 
-    for (let key in localCharacter["charismaAttr"]) {
-        localCharacter["charismaAttr"][key] = Number(statValue(key))
-    }
+    document.getElementById("ego").innerHTML = Number(
+        localCharacter.condition.ego
+    )
+    document.getElementById("sporeInfestations").innerHTML = Number(
+        localCharacter.condition.sporeInfestations
+    )
+    document.getElementById("fleshwounds").innerHTML = Number(
+        localCharacter.condition.fleshwounds
+    )
+    document.getElementById("trauma").innerHTML = Number(
+        localCharacter.condition.trauma
+    )
+}
 
-    for (let key in localCharacter["intellectAttr"]) {
-        localCharacter["intellectAttr"][key] = Number(statValue(key))
+const updateCharAttribute = attribute => {
+    for (let key in localCharacter[attribute]) {
+        statValue(key) === null
+            ? (localCharacter[attribute][key] = null)
+            : (localCharacter[attribute][key] = Number(statValue(key)))
     }
-
-    for (let key in localCharacter["psycheAttr"]) {
-        localCharacter["psycheAttr"][key] = Number(statValue(key))
-    }
-
-    for (let key in localCharacter["instinctAttr"]) {
-        localCharacter["instinctAttr"][key] = Number(statValue(key))
-    }
-
-    document.getElementById("ego").value = localCharacter.egoValue()
-    document.getElementById(
-        "sporeInfestations"
-    ).value = localCharacter.sporeInfestationsValue()
-    document.getElementById(
-        "fleshwounds"
-    ).value = localCharacter.fleshwoundsValue()
-    document.getElementById("trauma").value = localCharacter.traumaValue()
 }
