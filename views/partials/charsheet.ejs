@@ -1,112 +1,739 @@
-<div class="container-fluid form-group" id="main-charsheet">
-    <!-- Name, age, culture, concept, cult-->
-    <div id="char-header">
-        <div class="row">
-            <div class="col text-center">
-                <h1>PERSONAJE</h1>
+<form>
+    <div class="container-fluid form-group" id="main-charsheet">
+        <!-- Name, age, culture, concept, cult-->
+        <div id="char-header">
+            <div class="row">
+                <div class="col text-center">
+                    <h1>PERSONAJE</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <p>
+                        NOMBRE:
+                        <input type="" class="form-control form-control-sm" id="nombre"> EDAD:
+                        <input type="" class="form-control form-control-sm" id="edad"> RANGO:
+                        <input type="" class="form-control form-control-sm" id="rango"> EXPERIENCIA:
+                        <input type="" class="form-control form-control-sm" id="experiencia">
+                    </p>
+                </div>
+                <div class="col-lg-4">
+
+                </div>
+                <div class="col-lg-4">
+                    <p>
+                        SEXO:
+                        <input type="" class="form-control form-control-sm" id="sexo"> ALTURA:
+                        <input type="" class="form-control form-control-sm" id="altura"> PESO:
+                        <input type="" class="form-control form-control-sm" id="peso"> DINARES/LC:
+                        <input type="" class="form-control form-control-sm" id="dinares-lc">
+                    </p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-4">
+                    <p>
+                        <h5>CULTURA</h5>
+                    </p>
+                    <p>
+                        <select class="form-control form-control-sm" id="cultura">
+
+                        </select>
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <p>
+                        <h5>CONCEPTO</h5>
+                    </p>
+                    <p>
+                        <select class="form-control form-control-sm" id="concepto">
+
+                        </select>
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <p>
+                        <h5>COLECTIVO</h5>
+                    </p>
+                    <p>
+                        <select class="form-control form-control-sm" id="colectivo">
+
+                        </select>
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <p>
-                    NOMBRE:
-                    <input type="" class="form-control form-control-sm" id="nombre"> EDAD:
-                    <input type="" class="form-control form-control-sm" id="edad"> RANGO:
-                    <input type="" class="form-control form-control-sm" id="rango"> EXPERIENCIA:
-                    <input type="" class="form-control form-control-sm" id="experiencia">
-                </p>
+        <hr class="my-4">
+        <!-- Body, Agility, Charisma -->
+        <div id="attributes-skills">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>ELIGE FE O VOLUNTAD:
+                        <select class="form-control form-control-sm" id="faith-willpower" onchange="faithOrWill(this)">
+                            <option>FE</option>
+                            <option>VOLUNTAD</option>
+                        </select>
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <p>ELIGE CONCENTRACIÓN O PRIMORDIAL:
+                        <select class="form-control form-control-sm" id="focus-primal" onchange="focusOrPrimal(this)">
+                            <option>CONCENTRACIÓN</option>
+                            <option>PRIMORDIAL</option>
+                        </select>
+                    </p>
+                </div>
             </div>
-            <div class="col-lg-4">
+            <div class="row" id="attributes-1">
+                <div class="col-lg-4" id="attr-body">
+                    <table class="table table-hover table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col" class="col-8">CUERPO</th>
+                                <th scope="col" class="col-4">
+                                    <select class="form-control form-control-sm numeric" id="body">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">ATLETISMO</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="athletics">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CUERPO A CUERPO</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="melee">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">FUERZA</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="force">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">PELEA</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="brawl">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RESISTENCIA</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="toughness">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">VIGOR</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="stamina">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-4" id="attr-agility">
+                    <table class="table table-hover table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col" class="col-8">AGILIDAD</th>
+                                <th scope="col" class="col-4">
+                                    <select class="form-control form-control-sm numeric" id="agility">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">CONDUCIR</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="navigation">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">DESTREZA</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="dexterity">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">FABRICAR</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="crafting">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">MOVILIDAD</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="mobility">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">PROYECTILES</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="projectiles">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">SIGILO</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="stealth">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-4" id="attr-charisma">
+                    <table class="table table-hover table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col" class="col-8">CARISMA</th>
+                                <th scope="col" class="col-4">
+                                    <select class="form-control form-control-sm numeric" id="charisma">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">ARTE</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="arts">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CONDUCTA</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="conduct">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">EXPRESIÓN</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="expression">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">LIDERAZGO</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="leadership">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">NEGOCIACIÓN</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="negotiation">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">SEDUCCIÓN</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="seduction">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-            </div>
-            <div class="col-lg-4">
-                <p>
-                    SEXO:
-                    <input type="" class="form-control form-control-sm" id="sexo"> ALTURA:
-                    <input type="" class="form-control form-control-sm" id="altura"> PESO:
-                    <input type="" class="form-control form-control-sm" id="peso"> DINARES/LC:
-                    <input type="" class="form-control form-control-sm" id="dinares-lc">
-                </p>
+            <!-- Intellect, Psyche, Instinct -->
+            <div class="row" id="attributes-2">
+                <div class="col-lg-4" id="attr-intellect">
+                    <table class="table table-hover table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col" class="col-8">INTELECTO</th>
+                                <th scope="col" class="col-4">
+                                    <select class="form-control form-control-sm numeric" id="intellect">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">ARTEFACTOS</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="artifactLore">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" id="focus-text">CONCENTRACIÓN</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="focus">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CIENCIA</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="science">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">INGENIERÍA</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="engineering">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">LEYENDAS</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="legends">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">MEDICINA</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="medicine">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+                <div class="col-lg-4" id="attr-psyche">
+                    <table class="table table-hover table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col" class="col-8">PSIQUE</th>
+                                <th scope="col" class="col-4">
+                                    <select class="form-control form-control-sm numeric" id="psyche">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">ASTUCIA</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="cunning">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">DOMINACIÓN</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="domination">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ENGAÑO</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="deception">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" id="faith-text">FE</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="faith">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">REACCIÓN</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="reaction">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" id="willpower-text">VOLUNTAD</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="willpower">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+                <div class="col-lg-4" id="attr-instinct">
+                    <table class="table table-hover table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col" class="col-8">INSTINTO</th>
+                                <th scope="col" class="col-4">
+                                    <select class="form-control form-control-sm numeric" id="instinct">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">DOMA</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="taming">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">EMPATÍA</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="empathy">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ORIENTACIÓN</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="orienteering">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">PERCEPCIÓN</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="perception">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" id="primal-text">PRIMORDIAL</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="primal">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">SUPERVIVENCIA</th>
+                                <td>
+                                    <select class="form-control form-control-sm numeric" id="survival">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
             </div>
         </div>
-        <div class="row text-center">
-            <div class="col-lg-4">
-                <p>
-                    <h5>CULTURA</h5>
-                </p>
-                <p>
-                    <select class="form-control form-control-sm" id="cultura">
-
-                    </select>
-                </p>
-            </div>
-            <div class="col-lg-4">
-                <p>
-                    <h5>CONCEPTO</h5>
-                </p>
-                <p>
-                    <select class="form-control form-control-sm" id="concepto">
-
-                    </select>
-                </p>
-            </div>
-            <div class="col-lg-4">
-                <p>
-                    <h5>COLECTIVO</h5>
-                </p>
-                <p>
-                    <select class="form-control form-control-sm" id="colectivo">
-
-                    </select>
-                </p>
-            </div>
-        </div>
-    </div>
-    <hr class="my-4">
-    <!-- Body, Agility, Charisma -->
-    <div id="attributes-skills">
-        <div class="row">
-            <div class="col-lg-6">
-                <p>ELIGE FE O VOLUNTAD:
-                    <select class="form-control form-control-sm" id="faith-willpower" onchange="faithOrWill(this)">
-                        <option>FE</option>
-                        <option>VOLUNTAD</option>
-                    </select>
-                </p>
-            </div>
-            <div class="col-lg-6">
-                <p>ELIGE CONCENTRACIÓN O PRIMORDIAL:
-                    <select class="form-control form-control-sm" id="focus-primal" onchange="focusOrPrimal(this)">
-                        <option>CONCENTRACIÓN</option>
-                        <option>PRIMORDIAL</option>
-                    </select>
-                </p>
-            </div>
-        </div>
-        <div class="row" id="attributes-1">
-            <div class="col-lg-4" id="attr-body">
+        <hr class="my-4">
+        <!-- Origins, Ego, Wounds, Spore, Potentials -->
+        <div class="row" id="origins-condition-potentials">
+            <div class="col-lg-4" id="origins">
                 <table class="table table-hover table-sm">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col" class="col-8">CUERPO</th>
-                            <th scope="col" class="col-4">
-                                <select class="form-control form-control-sm" id="body">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </th>
+                            <th scope="col" class="col-8">ORÍGENES</th>
+                            <th scope="col" class="col-4"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">ATLETISMO</th>
+                            <th scope="row">ALIADOS</th>
                             <td>
-                                <select class="form-control form-control-sm" id="athletics">
-                                    <option>0</option>
+                                <select class="form-control form-control-sm numeric" id="allies">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -117,10 +744,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">CUERPO A CUERPO</th>
+                            <th scope="row">AUTORIDAD</th>
                             <td>
-                                <select class="form-control form-control-sm" id="melee">
-                                    <option>0</option>
+                                <select class="form-control form-control-sm numeric" id="authority">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -131,10 +757,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">FUERZA</th>
+                            <th scope="row">RED</th>
                             <td>
-                                <select class="form-control form-control-sm" id="force">
-                                    <option>0</option>
+                                <select class="form-control form-control-sm numeric" id="network">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -145,10 +770,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">PELEA</th>
+                            <th scope="row">RENOMBRE</th>
                             <td>
-                                <select class="form-control form-control-sm" id="brawl">
-                                    <option>0</option>
+                                <select class="form-control form-control-sm numeric" id="renown">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -159,10 +783,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">RESISTENCIA</th>
+                            <th scope="row">RECURSOS</th>
                             <td>
-                                <select class="form-control form-control-sm" id="toughness">
-                                    <option>0</option>
+                                <select class="form-control form-control-sm numeric" id="resources">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -173,10 +796,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">VIGOR</th>
+                            <th scope="row">SECRETOS</th>
                             <td>
-                                <select class="form-control form-control-sm" id="stamina">
-                                    <option>0</option>
+                                <select class="form-control form-control-sm numeric" id="secrets">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -189,210 +811,145 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-4" id="attr-agility">
+            <div class="col-lg-4 text-center" id="condition">
                 <table class="table table-hover table-sm">
-                    <thead class="thead-dark">
+                    <thead class="thead">
                         <tr>
-                            <th scope="col" class="col-8">AGILIDAD</th>
-                            <th scope="col" class="col-4">
-                                <select class="form-control form-control-sm" id="agility">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </th>
+                            <th scope="col">EGO</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">CONDUCIR</th>
                             <td>
-                                <select class="form-control form-control-sm" id="navigation">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
+                                <div class="text-center font-weight-bold" id="ego">--</div>
                             </td>
                         </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-sm">
+                    <thead class="thead">
                         <tr>
-                            <th scope="row">DESTREZA</th>
+                            <th scope="col" class="col-12">INFESTACIÓN DE ESPORAS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
                             <td>
-                                <select class="form-control form-control-sm" id="dexterity">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
+                                <div class="text-center font-weight-bold" id="sporeInfestations"><b>--</b></div>
                             </td>
                         </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-sm">
+                    <thead class="thead">
                         <tr>
-                            <th scope="row">FABRICAR</th>
+                            <th scope="col" class="col-12">HERIDAS SUPERFICIALES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
                             <td>
-                                <select class="form-control form-control-sm" id="crafting">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
+                                <div class="text-center font-weight-bold" id="fleshwounds">--</div>
                             </td>
                         </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover table-sm">
+                    <thead class="thead">
                         <tr>
-                            <th scope="row">MOVILIDAD</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="mobility">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
+                            <th scope="col" class="col-12">TRAUMA</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         <tr>
-                            <th scope="row">PROYECTILES</th>
                             <td>
-                                <select class="form-control form-control-sm" id="projectiles">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">SIGILO</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="stealth">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
+                                <div class="text-center font-weight-bold" id="trauma">--</div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-4" id="attr-charisma">
+            <div class="col-lg-4 text-uppercase" id="potentials">
                 <table class="table table-hover table-sm">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col" class="col-8">CARISMA</th>
-                            <th scope="col" class="col-4">
-                                <select class="form-control form-control-sm" id="charisma">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </th>
+                            <th scope="col" class="col-8">POTENCIALES</th>
+                            <th scope="col" class="col-4"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">ARTE</th>
+                            <th scope="row">
+                                <input class="form-control form-control-sm text-uppercase" type="text" placeholder="POTENCIAL..." id="pot1">
+                            </th>
                             <td>
-                                <select class="form-control form-control-sm" id="arts">
-                                    <option>0</option>
+                                <select class="form-control form-control-sm numeric" id="pot1-level">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">CONDUCTA</th>
+                            <th scope="row">
+                                <input class="form-control form-control-sm text-uppercase" type="text" placeholder="POTENCIAL..." id="pot2">
+                            </th>
                             <td>
-                                <select class="form-control form-control-sm" id="conduct">
-                                    <option>0</option>
+                                <select class="form-control form-control-sm numeric" id="pot2-level">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">EXPRESIÓN</th>
+                            <th scope="row">
+                                <input class="form-control form-control-sm text-uppercase" type="text" placeholder="POTENCIAL..." id="pot3">
+                            </th>
                             <td>
-                                <select class="form-control form-control-sm" id="expression">
-                                    <option>0</option>
+                                <select class="form-control form-control-sm numeric" id="pot3-level">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">LIDERAZGO</th>
+                            <th scope="row">
+                                <input class="form-control form-control-sm text-uppercase" type="text" placeholder="POTENCIAL..." id="pot4">
+                            </th>
                             <td>
-                                <select class="form-control form-control-sm" id="leadership">
-                                    <option>0</option>
+                                <select class="form-control form-control-sm numeric" id="pot4-level">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
+
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">NEGOCIACIÓN</th>
+                            <th scope="row">
+                                <input class="form-control form-control-sm text-uppercase" type="text" placeholder="POTENCIAL..." id="pot5">
+                            </th>
                             <td>
-                                <select class="form-control form-control-sm" id="negotiation">
-                                    <option>0</option>
+                                <select class="form-control form-control-sm numeric" id="pot5-level">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
+
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SEDUCCIÓN</th>
+                            <th scope="row">
+                                <input class="form-control form-control-sm text-uppercase" type="text" placeholder="POTENCIAL..." id="pot6">
+                            </th>
                             <td>
-                                <select class="form-control form-control-sm" id="seduction">
-                                    <option>0</option>
+                                <select class="form-control form-control-sm numeric" id="pot6-level">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
+
                                 </select>
                             </td>
                         </tr>
@@ -400,572 +957,17 @@
                 </table>
             </div>
         </div>
-
-        <!-- Intellect, Psyche, Instinct -->
-        <div class="row" id="attributes-2">
-            <div class="col-lg-4" id="attr-intellect">
-                <table class="table table-hover table-sm">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col" class="col-8">INTELECTO</th>
-                            <th scope="col" class="col-4">
-                                <select class="form-control form-control-sm" id="intellect">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">ARTEFACTOS</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="artifactLore">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row" id="focus-text">CONCENTRACIÓN</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="focus">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">CIENCIA</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="science">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">INGENIERÍA</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="engineering">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">LEYENDAS</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="legends">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">MEDICINA</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="medicine">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                </table>
+        <hr class="my-4">
+        <!-- Equipment -->
+        <div id="equipment">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>EQUIPO</h2>
+                </div>
             </div>
-            <div class="col-lg-4" id="attr-psyche">
-                <table class="table table-hover table-sm">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col" class="col-8">PSIQUE</th>
-                            <th scope="col" class="col-4">
-                                <select class="form-control form-control-sm" id="psyche">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">ASTUCIA</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="cunning">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">DOMINACIÓN</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="domination">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">ENGAÑO</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="deception">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row" id="faith-text">FE</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="faith">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">REACCIÓN</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="reaction">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row" id="willpower-text">VOLUNTAD</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="willpower">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                </table>
-            </div>
-            <div class="col-lg-4" id="attr-instinct">
-                <table class="table table-hover table-sm">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col" class="col-8">INSTINTO</th>
-                            <th scope="col" class="col-4">
-                                <select class="form-control form-control-sm" id="instinct">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">DOMA</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="taming">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">EMPATÍA</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="empathy">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">ORIENTACIÓN</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="orienteering">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">PERCEPCIÓN</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="perception">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row" id="primal-text">PRIMORDIAL</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="primal">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">SUPERVIVENCIA</th>
-                            <td>
-                                <select class="form-control form-control-sm" id="survival">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                        </tr>
-                </table>
+            <div class="row" id="equipment">
+                <div class="col text-center">[CONTENIDO]</div>
             </div>
         </div>
     </div>
-    <hr class="my-4">
-    <!-- Origins, Ego, Wounds, Spore, Potentials -->
-    <div class="row" id="origins-condition-potentials">
-        <div class="col-lg-4" id="origins">
-            <table class="table table-hover table-sm">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col" class="col-8">ORÍGENES</th>
-                        <th scope="col" class="col-4"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">ALIADOS</th>
-                        <td>
-                            <select class="form-control form-control-sm" id="allies">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">AUTORIDAD</th>
-                        <td>
-                            <select class="form-control form-control-sm" id="authority">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">RED</th>
-                        <td>
-                            <select class="form-control form-control-sm" id="network">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">RENOMBRE</th>
-                        <td>
-                            <select class="form-control form-control-sm" id="renown">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">RECURSOS</th>
-                        <td>
-                            <select class="form-control form-control-sm" id="resources">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">SECRETOS</th>
-                        <td>
-                            <select class="form-control form-control-sm" id="secrets">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                            </select>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-lg-4 text-center" id="condition">
-            <table class="table table-hover table-sm">
-                <thead class="thead">
-                    <tr>
-                        <th scope="col">EGO</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="text-center font-weight-bold" id="ego">--</div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-hover table-sm">
-                <thead class="thead">
-                    <tr>
-                        <th scope="col" class="col-12">INFESTACIÓN DE ESPORAS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="text-center font-weight-bold" id="sporeInfestations"><b>--</b></div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-hover table-sm">
-                <thead class="thead">
-                    <tr>
-                        <th scope="col" class="col-12">HERIDAS SUPERFICIALES</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="text-center font-weight-bold" id="fleshwounds">--</div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-hover table-sm">
-                <thead class="thead">
-                    <tr>
-                        <th scope="col" class="col-12">TRAUMA</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="text-center font-weight-bold" id="trauma">--</div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-lg-4 text-uppercase" id="potentials">
-            <table class="table table-hover table-sm">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col" class="col-8">POTENCIALES</th>
-                        <th scope="col" class="col-4"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">
-                            <input class="form-control form-control-sm text-uppercase" type="text" placeholder="POTENCIAL..." id="pot1">
-                        </th>
-                        <td>
-                            <select class="form-control form-control-sm" id="pot1-level">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <input class="form-control form-control-sm text-uppercase" type="text" placeholder="POTENCIAL..." id="pot2">
-                        </th>
-                        <td>
-                            <select class="form-control form-control-sm" id="pot2-level">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <input class="form-control form-control-sm text-uppercase" type="text" placeholder="POTENCIAL..." id="pot3">
-                        </th>
-                        <td>
-                            <select class="form-control form-control-sm" id="pot3-level">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <input class="form-control form-control-sm text-uppercase" type="text" placeholder="POTENCIAL..." id="pot4">
-                        </th>
-                        <td>
-                            <select class="form-control form-control-sm" id="pot4-level">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <input class="form-control form-control-sm text-uppercase" type="text" placeholder="POTENCIAL..." id="pot5">
-                        </th>
-                        <td>
-                            <select class="form-control form-control-sm" id="pot5-level">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <input class="form-control form-control-sm text-uppercase" type="text" placeholder="POTENCIAL..." id="pot6">
-                        </th>
-                        <td>
-                            <select class="form-control form-control-sm" id="pot6-level">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-
-                            </select>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <hr class="my-4">
-    <!-- Equipment -->
-    <div id="equipment">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2>EQUIPO</h2>
-            </div>
-        </div>
-        <div class="row" id="equipment">
-            <div class="col text-center">[CONTENIDO]</div>
-        </div>
-    </div>
-</div>
+</form>
