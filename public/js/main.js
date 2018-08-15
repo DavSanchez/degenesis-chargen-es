@@ -88,47 +88,56 @@ window.onload = () => {
     // INITIAL STATE OF FAITH AND FOCUS IMPLIES WILL AND PRIMAL ARE DEACTIVATED
     willpowerText.style.setProperty("text-decoration", "line-through")
     willpowerValue.disabled = true
-    willpowerValue.value = null
+    willpowerValue.value = ""
 
     primalText.style.setProperty("text-decoration", "line-through")
     primalValue.disabled = true
-    primalValue.value = null
+    primalValue.value = ""
+
+    addListenerMulti(document.getElementById("charsheet-form"), "change keyup paste", updateLocalCharacter)
 }
 
-const faithOrWill = elem => {
-    if (elem.value === "FE") {
+const checkAttributeSelectors = elem => {
+    switch (elem.value) {
+    case "faith":
         willpowerText.style.setProperty("text-decoration", "line-through")
         willpowerValue.disabled = true
-        willpowerValue.value = null
+        willpowerValue.value = ""
         faithText.style.setProperty("text-decoration", "none")
         faithValue.disabled = false
         faithValue.value = 0
-    } else {
+        break
+    case "willpower":
         willpowerText.style.setProperty("text-decoration", "none")
         willpowerValue.disabled = false
         willpowerValue.value = 0
         faithText.style.setProperty("text-decoration", "line-through")
         faithValue.disabled = true
-        faithValue.value = null
-    }
-    updateLocalCharacter()
-}
-
-const focusOrPrimal = elem => {
-    if (elem.value === "CONCENTRACIÓN") {
+        faithValue.value = ""
+        break
+    case "focus":
         primalText.style.setProperty("text-decoration", "line-through")
         primalValue.disabled = true
-        primalValue.value = null
+        primalValue.value = ""
         focusText.style.setProperty("text-decoration", "none")
         focusValue.disabled = false
         focusValue.value = 0
-    } else {
+        break
+    case "primal":
         primalText.style.setProperty("text-decoration", "none")
         primalValue.disabled = false
         primalValue.value = 0
         focusText.style.setProperty("text-decoration", "line-through")
         focusValue.disabled = true
-        focusValue.value = null
+        focusValue.value = ""
+        break
+    default:
+        break
     }
     updateLocalCharacter()
+}
+
+// Multiple event listeners without jQuery
+function addListenerMulti(element, events, func) {
+    events.split(" ").forEach(e => element.addEventListener(e, func, false))
 }

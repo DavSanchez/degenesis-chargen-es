@@ -1,5 +1,18 @@
+// TODO let's desugar this thing to get rid of all these this.whatevers ...
+
 class DegenesisChar {
     constructor() {
+        this.name = ""
+        this.age = ""
+        this.rank = ""
+        this.experience = 0
+        this.sex = ""
+        this.height = 0
+        this.weight = 0
+        this.dinars = 0
+        this.culture = ""
+        this.concept = ""
+        this.cult = ""
         this.bodyAttr = {
             body: 1,
             athletics: 0,
@@ -68,7 +81,14 @@ class DegenesisChar {
             fleshwounds: 2,
             trauma: 2
         }
-        this.potentials = new Array()
+        this.potentials = {
+            pot1: "",
+            pot2: "",
+            pot3: "",
+            pot4: "",
+            pot5: "",
+            pot6: ""
+        }
         this.equipment = {
             weapons: new Array(),
             protections: new Array(),
@@ -95,27 +115,27 @@ class Potential {
     constructor(nombre, nivel) {
         this.nombre = nombre
         this.nivel = nivel
-    //this.descripcion = descripcion
+        //this.descripcion = descripcion
     }
 }
 
 class Weapon {
     constructor(nombre) {
         this.nombre = nombre
-    //this.descripcion = descripcion
+        //this.descripcion = descripcion
     }
 }
 
 class Protection {
     constructor(nombre) {
         this.nombre = nombre
-    //this.descripcion = descripcion
+        //this.descripcion = descripcion
     }
 }
 
 class Equipment {
     constructor(nombre) {
         this.nombre = nombre
-    //this.descripcion = descripcion
+        //this.descripcion = descripcion
     }
 }
