@@ -50,11 +50,13 @@ const updateLocalCharacter = () => {
     pots.forEach(updatePotentials)
 
     //TEST
-    document.getElementById("text-area").innerHTML = JSON.stringify(
+    document.getElementById("stats-area").innerHTML = JSON.stringify(
         localCharacter,
         null,
         2
     )
+    // WRITE OUTPUT
+    writeOutput()
 }
 
 const updateCharAttribute = attribute => {
@@ -76,4 +78,8 @@ const updatePotentials = pot => {
             document.getElementById(pot.toString() + "-level").value
         )
     }
+}
+
+const writeOutput = e => {
+    
 }

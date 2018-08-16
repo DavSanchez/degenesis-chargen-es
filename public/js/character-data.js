@@ -139,3 +139,55 @@ class Equipment {
         //this.descripcion = descripcion
     }
 }
+
+const skillsSpanish = {
+    // CUERPO
+    athletics: "Atletismo",
+    melee: "Cuerpo a cuerpo",
+    force: "Fuerza",
+    brawl: "Pelea",
+    toughness: "Resistencia",
+    stamina: "Vigor",
+    // AGILIDAD
+    navigation: "Conducir",
+    dexterity: "Destreza",
+    crafting: "Fabricar",
+    mobility: "Movilidad",
+    projectiles: "Proyectiles",
+    stealth: "Sigilo",
+    // CARISMA
+    arts: "Arte",
+    conduct: "Conducta",
+    expression: "Expresión",
+    leadership: "Liderazgo",
+    negotiation: "Negociación",
+    seduction: "Seducción",
+    // INTELECTO
+    artifactLore: "Artefactos",
+    focus: "Concentración",
+    science: "Ciencia",
+    engineering: "Ingeniería",
+    legends: "Leyendas",
+    medicine: "Medicina",
+    //PSIQUE
+    cunning: "Astucia",
+    domination: "Dominación",
+    deception: "Engaño",
+    faith: "Fe",
+    reaction: "Reacción",
+    willpower: "Voluntad",
+    // INSTINTO
+    taming: "Doma",
+    empathy: "Empatía",
+    orienteering: "Orientación",
+    perception: "Percepción",
+    primal: "Primordial",
+    survival: "Supervivencia",
+    // ORIGENES
+    allies: "Aliados",
+    authority: "Autoridad",
+    network: "Red",
+    renown: "Renombre",
+    resources: "Recursos",
+    secrets: "Secretos"
+}
