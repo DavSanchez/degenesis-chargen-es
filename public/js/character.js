@@ -50,11 +50,12 @@ const updateLocalCharacter = () => {
     pots.forEach(updatePotentials)
 
     //TEST
-    document.getElementById("stats-area").innerHTML = JSON.stringify(
-        localCharacter,
-        null,
-        2
-    )
+    // document.getElementById("stats-area").innerHTML = JSON.stringify(
+    //     localCharacter,
+    //     null,
+    //     2
+    // )
+
     // WRITE OUTPUT
     writeOutput()
 }
