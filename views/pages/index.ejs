@@ -6,45 +6,23 @@
 </head>
 
 <body>
-        <nav class="navbar navbar-expand-xl navbar-dark bg-dark sticky-top">
-                <!-- Navbar content -->
-                <a class="navbar-brand" href="/">Degenesis CharGen!</a>
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item result-button">
-                        <a class="nav-link" href="#output-area">Ir al resultado</a>
-                    </li>
-                </ul>
-                <div class="collapse navbar-collapse" id="navbar-collapsing">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">¿Qué es esto?</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/DavSanchez/degenesis-chargen-es">GitHub</a>
-                        </li>
-                    </ul>
-                </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsing" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </nav>
-    <hr class="my-4 ">
-    <div class="container-fluid ">
-        <div class="row ">
-            <div class="col-xl-7 ">
-                <% include ../partials/charsheet.ejs %>
-            </div>
-            <div class="col-xl-5 ">
-                <% include ../partials/output-area.ejs %>
-            </div>
-        </div>
+    <% include ../partials/navbar.ejs %>
+        <hr class="my-4 ">
         <div class="container-fluid ">
-            <hr class="my-4 ">
+            <div class="row ">
+                <div class="col-xl-7 ">
+                    <% include ../partials/charsheet.ejs %>
+                </div>
+                <div class="col-xl-5 ">
+                    <% include ../partials/output-area.ejs %>
+                </div>
+            </div>
+            <div class="container-fluid ">
+                <hr class="my-4 ">
+            </div>
         </div>
-    </div>
-    <script src="js/main.js" type="text/javascript"></script>
-    <% include ../partials/body-end.ejs %>
+        <script src="js/main.js" type="text/javascript"></script>
+        <% include ../partials/body-end.ejs %>
 
 </body>
 

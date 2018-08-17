@@ -6,48 +6,27 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-xl navbar-dark bg-dark sticky-top">
-        <!-- Navbar content -->
-        <a class="navbar-brand" href="/">Degenesis CharGen!</a>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item result-button">
-                <a class="nav-link" href="#output-area">Ir al resultado</a>
-            </li>
-        </ul>
-        <div class="collapse navbar-collapse" id="navbar-collapsing">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/about">¿Qué es esto?</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/DavSanchez/degenesis-chargen-es">GitHub</a>
-                </li>
-            </ul>
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsing" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </nav>
+    <% include ../partials/navbar.ejs %>
 
-    <div class="container">
-        <div class="jumbotron">
-            <p>
-                Este sitio es un generador de personajes para el juego de rol Degenesis. La idea es que sirva sobre todo para crear PNJs
-                rápidamente, de manera que siempre puedas tener a tu alcance un bloque de estadísticas siguiendo el mismo
-                formato que puede verse en los libros.
-            </p>
-            <p>Ando buscando formas de implementar esto a la vez que aprendo algo nuevo, así que igual acaba utilizando más
-                <i>morralla</i> de la que realmente le haría falta a un proyecto de estas características... Sean comprensivos,
-                <i>please</i>, y tienen alguna idea no duden en sugerir algo en
-                <a href="https://github.com/DavSanchez/degenesis-chargen-es">el repositorio de GitHub</a> del proyecto.
-            </p>
-            <p>¡Saluditos!</p>
+        <div class="container">
+            <div class="jumbotron">
+                <p>
+                    Este sitio es un generador de personajes para el juego de rol Degenesis. La idea es que sirva sobre todo para crear PNJs
+                    rápidamente, de manera que siempre puedas tener a tu alcance un bloque de estadísticas siguiendo el mismo
+                    formato que puede verse en los libros.
+                </p>
+                <p>Ando buscando formas de implementar esto a la vez que aprendo algo nuevo, así que igual acaba utilizando
+                    más
+                    <i>morralla</i> de la que realmente le haría falta a un proyecto de estas características... Sean comprensivos,
+                    <i>please</i>, y tienen alguna idea no duden en sugerir algo en
+                    <a href="https://github.com/DavSanchez/degenesis-chargen-es">el repositorio de GitHub</a> del proyecto.
+                </p>
+                <p>¡Saluditos!</p>
+            </div>
         </div>
-    </div>
-    <hr class="my-4">
+        <hr class="my-4">
 
-    <% include ../partials/body-end.ejs %>
+        <% include ../partials/body-end.ejs %>
 
 </body>
 
