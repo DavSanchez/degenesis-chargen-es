@@ -69,7 +69,7 @@ const fillDropdown = function(valuesArray, dropDown) {
     valuesArray.forEach(val => {
         let option = document.createElement("option")
         option.innerHTML = val.toUpperCase()
-        option.value = val.toUpperCase()
+        option.value = val
         fragment.appendChild(option)
     })
     dropDown.appendChild(fragment)

@@ -21,3 +21,23 @@ label.header-label {
 label.CCC {
   margin-top: 1rem;
 }
+
+#output-area {
+  position: static;
+}
+
+.result-button {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  #output-area {
+    position: fixed;
+  }
+}
+
+@media (max-width: 1200px) {
+  .result-button {
+    display: inline-block;
+  }
+}

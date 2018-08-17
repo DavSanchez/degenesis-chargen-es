@@ -82,12 +82,12 @@ class DegenesisChar {
             trauma: 2
         }
         this.potentials = {
-            pot1: "",
-            pot2: "",
-            pot3: "",
-            pot4: "",
-            pot5: "",
-            pot6: ""
+            pot1: new Potential("", 0),
+            pot2: new Potential("", 0),
+            pot3: new Potential("", 0),
+            pot4: new Potential("", 0),
+            pot5: new Potential("", 0),
+            pot6: new Potential("", 0)
         }
         this.equipment = {
             weapons: new Array(),
@@ -112,9 +112,9 @@ class DegenesisChar {
 }
 
 class Potential {
-    constructor(nombre, nivel) {
-        this.nombre = nombre
-        this.nivel = nivel
+    constructor(name, level) {
+        this.name = name
+        this.level = level
         //this.descripcion = descripcion
     }
 }
