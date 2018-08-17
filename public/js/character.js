@@ -59,14 +59,24 @@ const updateAttributeSkills = attribute => {
 
 const updatePotentials = pot => {
     localCharacter["potentials"][pot].name = id(pot.toString()).value
-    localCharacter["potentials"][pot].level = Number(id(pot.toString() + "-level").value)
+    localCharacter["potentials"][pot].level = Number(
+        id(pot.toString() + "-level").value
+    )
 }
 
 const outputSkills = attribute => {
     let output = []
     for (let key in localCharacter[attribute]) {
-        if (localCharacter[attribute][key] && key !== attribute.substring(0, attribute.length-4)){
-            output.push(`${skillsSpanish[key]} ${localCharacter[attribute][key] + localCharacter[attribute][attribute.substring(0, attribute.length-4)]}D`)
+        if (
+            localCharacter[attribute][key] &&
+            key !== attribute.substring(0, attribute.length - 4)
+        ) {
+            output.push(
+                `${skillsSpanish[key]} ${localCharacter[attribute][key] +
+                    localCharacter[attribute][
+                        attribute.substring(0, attribute.length - 4)
+                    ]}D`
+            )
         }
     }
     return output.join(", ")
@@ -76,7 +86,9 @@ const outputOrigins = e => {
     let output = []
     for (let key in localCharacter["origins"]) {
         if (localCharacter["origins"][key]) {
-            output.push(`${skillsSpanish[key]} ${localCharacter["origins"][key]}D`)
+            output.push(
+                `${skillsSpanish[key]} ${localCharacter["origins"][key]}D`
+            )
         }
     }
     return output.join(", ")
@@ -84,27 +96,42 @@ const outputOrigins = e => {
 
 const outputPotentials = e => {
     let output = []
-    for (let key in localCharacter["potentials"]){
+    for (let key in localCharacter["potentials"]) {
         if (localCharacter["potentials"][key].name) {
             console.log("Entramos en condición")
-            output.push(`${localCharacter["potentials"][key].name} ${(localCharacter["potentials"][key].level) ? localCharacter["potentials"][key].level : ""}`)
+            output.push(
+                `${localCharacter["potentials"][key].name} ${
+                    localCharacter["potentials"][key].level
+                        ? localCharacter["potentials"][key].level
+                        : ""
+                }`
+            )
         }
     }
     return output.join(", ")
 }
 
-
-
 const writeOutput = e => {
-    let outSkills = attributes.map(outputSkills).filter(e => e !== "").join(", ")
+    let outSkills = attributes
+        .map(outputSkills)
+        .filter(e => e !== "")
+        .join(", ")
     let outOrigins = outputOrigins()
     let outPotentials = outputPotentials()
-    let focusOrPrimal = (localCharacter.intellectAttr.focus === null) ? "Primordial" : "Concentración"
+    let focusOrPrimal =
+        localCharacter.intellectAttr.focus === null
+            ? "Primordial"
+            : "Concentración"
     let outAttacks = "",
         outDefense = "",
         outProtections = ""
 
-    id("stats-area").innerHTML = `<h1 class="text-uppercase">${localCharacter.name}</h1>
+    // WE CAN PUT THIS MORE BEAUTIFULLY WITH createDocumentFragment() AND appendChild() (See dropdown population in main.js)
+    id(
+        "output-area"
+    ).innerHTML = `<div id="stats-area"><h1 class="text-uppercase">${
+        localCharacter.name
+    }</h1>
     <hr class="my-4">
     <span class="lead">PERFIL</span><br>
     <b>ARQUETIPO:</b> ${localCharacter.culture}, ${localCharacter.concept}, ${
@@ -136,5 +163,5 @@ const writeOutput = e => {
 Superficiales ${localCharacter.condition.fleshwounds}, Trauma ${
     localCharacter.condition.trauma
 }<br>
-<hr class="my-4">`
+<hr class="my-4"></div>`
 }
