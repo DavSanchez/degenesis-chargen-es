@@ -126,7 +126,7 @@ const writeOutput = e => {
         outDefense = "",
         outProtections = ""
 
-    // WE CAN PUT THIS MORE BEAUTIFULLY WITH createDocumentFragment() AND appendChild() (See dropdown population in main.js)
+    // WE CAN PUT THIS MORE ELEGANTLY WITH createDocumentFragment() AND appendChild() (See dropdown population in main.js)
     id(
         "output-area"
     ).innerHTML = `<div id="stats-area"><h1 class="text-uppercase">${
