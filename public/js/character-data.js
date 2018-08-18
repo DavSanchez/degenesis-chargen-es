@@ -89,10 +89,14 @@ class DegenesisChar {
             pot5: new Potential("", 0),
             pot6: new Potential("", 0)
         }
-        this.equipment = {
-            weapons: new Array(),
-            protections: new Array(),
-            other: new Array()
+        this.weapons = {
+            weapon1: new Weapon("","",0,0,0,"",0,0,0),
+            weapon2: new Weapon("","",0,0,0,"",0,0,0),
+            weapon3: new Weapon("","",0,0,0,"",0,0,0)
+        }
+        this.protection = {
+            protection1: new Protection("",0,0,"",0,0,0),
+            protection2: new Protection("",0,0,"",0,0,0)
         }
     }
 
@@ -120,15 +124,29 @@ class Potential {
 }
 
 class Weapon {
-    constructor(nombre) {
-        this.nombre = nombre
+    constructor(name, attackType, distance, damage, mag, properties, weight, techlevel, slots) {
+        this.name = name
+        this.attackType = attackType
+        this.distance = distance
+        this.damage = damage
+        this.mag = mag
+        this.properties = properties
+        this.weight = weight
+        this.techlevel = techlevel
+        this.slots = slots
         //this.descripcion = descripcion
     }
 }
 
 class Protection {
-    constructor(nombre) {
-        this.nombre = nombre
+    constructor(name, armor, defense, properties, weight, techlevel, slots) {
+        this.nombre = name
+        this.armor = armor
+        this.defense = defense
+        this.properties = properties
+        this.weight = weight
+        this.techlevel = techlevel
+        this.slots = slots
         //this.descripcion = descripcion
     }
 }
