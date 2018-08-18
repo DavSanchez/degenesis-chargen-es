@@ -91,13 +91,17 @@ const outputOrigins = e => {
             )
         }
     }
-    return output.join(", ")
+    return output.length
+        ? "<b>TRASFONDOS:</b> <span class='text-capitalize' id='out-origins'>" +
+              output.join(", ") +
+              "</span><br>"
+        : ""
 }
 
 const outputPotentials = e => {
     let output = []
     for (let key in localCharacter["potentials"]) {
-        if (localCharacter["potentials"][key].name) {
+        if (localCharacter["potentials"][key].name !== "") {
             console.log("Entramos en condición")
             output.push(
                 `${localCharacter["potentials"][key].name} ${
@@ -108,10 +112,17 @@ const outputPotentials = e => {
             )
         }
     }
-    return output.join(", ")
+    return output.length
+        ? "<b>POTENCIALES:</b> <span class='text-capitalize' id='out-potentials'>" +
+              output.join(", ") +
+              "</span><br>"
+        : ""
 }
 
 const writeOutput = e => {
+    let outRank = localCharacter.rank
+        ? `, Rango <span class="text-capitalize">${localCharacter.rank}`
+        : ""
     let outSkills = attributes
         .map(outputSkills)
         .filter(e => e !== "")
@@ -122,6 +133,8 @@ const writeOutput = e => {
         localCharacter.intellectAttr.focus === null
             ? "Primordial"
             : "Concentración"
+    let faithOrWill =
+        localCharacter.psycheAttr.faith === null ? "Voluntad" : "Fe"
     let outAttacks = "",
         outDefense = "",
         outProtections = ""
@@ -136,7 +149,7 @@ const writeOutput = e => {
     <span class="lead">PERFIL</span><br>
     <b>ARQUETIPO:</b> ${localCharacter.culture}, ${localCharacter.concept}, ${
     localCharacter.cult
-}, Rango <span class="text-capitalize">${localCharacter.rank}</span><br>
+}${outRank}</span><br>
     <b>ATRIBUTOS:</b> CUE ${localCharacter.bodyAttr.body}, AGI ${
     localCharacter.agilityAttr.agility
 }, CAR ${localCharacter.charismaAttr.charisma}, INT ${
@@ -145,9 +158,8 @@ const writeOutput = e => {
     localCharacter.instinctAttr.instinct
 }<br>
 <b>HABILIDADES:</b> <span class="text-capitalize" id="out-skills">${outSkills}</span><br>
-<b>TRASFONDOS:</b> <span class="text-capitalize" id="out-origins">${outOrigins}</span>
-        <br>
-<b>POTENCIALES:</b> <span class="text-capitalize" id="out-potentials">${outPotentials}</span><br>
+${outOrigins}
+${outPotentials}
 <b>INICIATIVA:</b> ${localCharacter.psycheAttr.psyche +
         localCharacter.psycheAttr.reaction}D, ${
     localCharacter.condition.ego
