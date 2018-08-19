@@ -119,6 +119,12 @@ const outputPotentials = e => {
         : ""
 }
 
+const outputAttacks = e => {}
+
+const outputDefense = e => {}
+
+const outputProtections = e => {}
+
 const writeOutput = e => {
     let outRank = localCharacter.rank
         ? `, Rango <span class="text-capitalize">${localCharacter.rank}`
@@ -135,9 +141,9 @@ const writeOutput = e => {
             : "Concentración"
     let faithOrWill =
         localCharacter.psycheAttr.faith === null ? "Voluntad" : "Fe"
-    let outAttacks = "",
-        outDefense = "",
-        outProtections = ""
+    let outAttacks = outputAttacks()
+    let outProtections = outputProtections()
+    let outDefense = outputDefense()
 
     // WE CAN PUT THIS MORE ELEGANTLY WITH createDocumentFragment() AND appendChild() (See dropdown population in main.js)
     id(
