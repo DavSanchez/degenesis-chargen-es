@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars, no-undef */
+
 // TODO let's desugar this thing to get rid of all these this.whatevers ...
 
 class DegenesisChar {
@@ -90,13 +92,13 @@ class DegenesisChar {
             pot6: new Potential("", 0)
         }
         this.weapons = {
-            weapon1: new Weapon("","",0,0,0,"",0,0,0),
-            weapon2: new Weapon("","",0,0,0,"",0,0,0),
-            weapon3: new Weapon("","",0,0,0,"",0,0,0)
+            weapon1: new Weapon("", "", 0, 0, 0, "", 0, 0, 0),
+            weapon2: new Weapon("", "", 0, 0, 0, "", 0, 0, 0),
+            weapon3: new Weapon("", "", 0, 0, 0, "", 0, 0, 0)
         }
         this.protection = {
-            protection1: new Protection("",0,0,"",0,0,0),
-            protection2: new Protection("",0,0,"",0,0,0)
+            protection1: new Protection("", 0, 0, "", 0, 0, 0),
+            protection2: new Protection("", 0, 0, "", 0, 0, 0)
         }
     }
 
@@ -124,7 +126,17 @@ class Potential {
 }
 
 class Weapon {
-    constructor(name, attackType, distance, damage, mag, properties, weight, techlevel, slots) {
+    constructor(
+        name,
+        attackType,
+        distance,
+        damage,
+        mag,
+        properties,
+        weight,
+        techlevel,
+        slots
+    ) {
         this.name = name
         this.attackType = attackType
         this.distance = distance

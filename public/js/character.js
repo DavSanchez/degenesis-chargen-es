@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars, no-undef */
+
 let localCharacter = new DegenesisChar()
 
 const attributes = [
@@ -31,6 +33,7 @@ const updateLocalCharacter = () => {
     attributes.forEach(updateAttributeSkills)
     updateAttributeSkills("origins")
 
+    // UPDATING CONDITION
     localCharacter.calculateCondition()
 
     id("ego").innerHTML = Number(localCharacter.condition.ego)
@@ -59,24 +62,16 @@ const updateAttributeSkills = attribute => {
 
 const updatePotentials = pot => {
     localCharacter["potentials"][pot].name = id(pot.toString()).value
-    localCharacter["potentials"][pot].level = Number(
-        id(pot.toString() + "-level").value
-    )
+    // prettier-ignore
+    localCharacter["potentials"][pot].level = Number(id(pot.toString() + "-level").value)
 }
 
 const outputSkills = attribute => {
     let output = []
     for (let key in localCharacter[attribute]) {
-        if (
-            localCharacter[attribute][key] &&
-            key !== attribute.substring(0, attribute.length - 4)
-        ) {
-            output.push(
-                `${skillsSpanish[key]} ${localCharacter[attribute][key] +
-                    localCharacter[attribute][
-                        attribute.substring(0, attribute.length - 4)
-                    ]}D`
-            )
+        // prettier-ignore
+        if (localCharacter[attribute][key] && key !== attribute.substring(0, attribute.length - 4)) {
+            output.push(`${skillsSpanish[key]} ${localCharacter[attribute][key] + localCharacter[attribute][attribute.substring(0, attribute.length - 4)]}D`)
         }
     }
     return output.join(", ")
@@ -85,45 +80,62 @@ const outputSkills = attribute => {
 const outputOrigins = e => {
     let output = []
     for (let key in localCharacter["origins"]) {
+        // prettier-ignore
         if (localCharacter["origins"][key]) {
-            output.push(
-                `${skillsSpanish[key]} ${localCharacter["origins"][key]}D`
-            )
+            output.push(`${skillsSpanish[key]} ${localCharacter["origins"][key]}D`)
         }
     }
+
+    // prettier-ignore
     return output.length
-        ? "<b>TRASFONDOS:</b> <span class='text-capitalize' id='out-origins'>" +
-              output.join(", ") +
-              "</span><br>"
+        ? `<b>TRASFONDOS:</b> <span class="text-capitalize" id="out-origins">${output.join(", ")}</span><br>`
         : ""
 }
 
 const outputPotentials = e => {
     let output = []
     for (let key in localCharacter["potentials"]) {
+        // prettier-ignore
         if (localCharacter["potentials"][key].name !== "") {
-            console.log("Entramos en condición")
-            output.push(
-                `${localCharacter["potentials"][key].name} ${
-                    localCharacter["potentials"][key].level
-                        ? localCharacter["potentials"][key].level
-                        : ""
-                }`
-            )
+            output.push(`${localCharacter["potentials"][key].name} ${localCharacter["potentials"][key].level
+                ? localCharacter["potentials"][key].level
+                : ""
+            }`)
         }
     }
+
+    // prettier-ignore
     return output.length
-        ? "<b>POTENCIALES:</b> <span class='text-capitalize' id='out-potentials'>" +
-              output.join(", ") +
-              "</span><br>"
+        ? `<b>POTENCIALES:</b> <span class="text-capitalize" id="out-potentials">${output.join(", ")}</span><br>`
         : ""
 }
 
-const outputAttacks = e => {}
+// TODO
+const outputAttacks = e => {
+    let output = []
+    // prettier-ignore
+    return output.length
+        ? (`<b>ATAQUE:</b> <span class="text-capitalize" id="out-attacks">${output.join(", ")}</span><br>`)
+        : ""
+}
 
-const outputDefense = e => {}
+// TODO, MUST USE faithOrWill !!!
+const outputDefense = e => {
+    let output = []
+    // prettier-ignore
+    return output.length
+        ? `<b>DEFENSA:</b> <span class="text-capitalize" id="out-defense">${output.join(", ")}</span><br>`
+        : ""
+}
 
-const outputProtections = e => {}
+// TODO
+const outputProtections = e => {
+    let output = []
+    // prettier-ignore
+    return output.length
+        ? `<b>PROTECCIÓN:</b> <span class="text-capitalize" id="out-protection">${output.join(", ")}</span><br>`
+        : ""
+}
 
 const writeOutput = e => {
     let outRank = localCharacter.rank
@@ -146,40 +158,24 @@ const writeOutput = e => {
     let outDefense = outputDefense()
 
     // WE CAN PUT THIS MORE ELEGANTLY WITH createDocumentFragment() AND appendChild() (See dropdown population in main.js)
-    id(
-        "output-area"
-    ).innerHTML = `<div id="stats-area"><h1 class="text-uppercase">${
-        localCharacter.name
-    }</h1>
+
+    // prettier-ignore
+    id("output-area").innerHTML = `
+    <div id="stats-area"><h1 class="text-uppercase">${localCharacter.name}</h1>
     <hr class="my-4">
     <span class="lead">PERFIL</span><br>
-    <b>ARQUETIPO:</b> ${localCharacter.culture}, ${localCharacter.concept}, ${
-    localCharacter.cult
-}${outRank}</span><br>
-    <b>ATRIBUTOS:</b> CUE ${localCharacter.bodyAttr.body}, AGI ${
-    localCharacter.agilityAttr.agility
-}, CAR ${localCharacter.charismaAttr.charisma}, INT ${
-    localCharacter.intellectAttr.intellect
-}, PSI ${localCharacter.psycheAttr.psyche}, INS ${
-    localCharacter.instinctAttr.instinct
-}<br>
-<b>HABILIDADES:</b> <span class="text-capitalize" id="out-skills">${outSkills}</span><br>
-${outOrigins}
-${outPotentials}
-<b>INICIATIVA:</b> ${localCharacter.psycheAttr.psyche +
-        localCharacter.psycheAttr.reaction}D, ${
-    localCharacter.condition.ego
-} Puntos de Ego (${focusOrPrimal})<br>
-<b>ATAQUE:</b> <span class="text-capitalize" id="out-attacks">${outAttacks}</span><br>
-<b>DEFENSA:</b> <span class="text-capitalize" id="out-defense">${outDefense}</span><br>
-<b>MOVIMIENTO:</b> ${localCharacter.bodyAttr.body +
-        localCharacter.bodyAttr.athletics}D<br>
-<b>PROTECCIÓN:</b> <span class="text-capitalize" id="out-protection">${outProtections}</span><br>
-<b>CONDICIÓN:</b> Infestación de Esporas ${
-    localCharacter.condition.sporeInfestations
-}, Heridas
-Superficiales ${localCharacter.condition.fleshwounds}, Trauma ${
-    localCharacter.condition.trauma
-}<br>
-<hr class="my-4"></div>`
+    <b>ARQUETIPO:</b> ${localCharacter.culture}, ${localCharacter.concept}, ${localCharacter.cult}${outRank}</span><br>
+    <b>ATRIBUTOS:</b> CUE ${localCharacter.bodyAttr.body}, AGI ${localCharacter.agilityAttr.agility}, CAR ${localCharacter.charismaAttr.charisma},
+    INT ${localCharacter.intellectAttr.intellect}, PSI ${localCharacter.psycheAttr.psyche}, INS ${localCharacter.instinctAttr.instinct}<br>
+    <b>HABILIDADES:</b> <span class="text-capitalize" id="out-skills">${outSkills}</span><br>
+    ${outOrigins}
+    ${outPotentials}
+    <b>INICIATIVA:</b> ${localCharacter.psycheAttr.psyche + localCharacter.psycheAttr.reaction}D, ${localCharacter.condition.ego} Puntos de Ego (${focusOrPrimal})<br>
+    ${outAttacks}
+    ${outDefense}
+    <b>MOVIMIENTO:</b> ${localCharacter.bodyAttr.body + localCharacter.bodyAttr.athletics}D<br>
+    ${outProtections}
+    <b>CONDICIÓN:</b> Infestación de Esporas ${localCharacter.condition.sporeInfestations}, Heridas Superficiales ${localCharacter.condition.fleshwounds}, Trauma ${localCharacter.condition.trauma}<br>
+    <hr class="my-4"></div>
+    `
 }

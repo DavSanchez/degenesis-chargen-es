@@ -1,9 +1,4 @@
-/*   ACTUALIZAR CUANDO SE ESCRIBE ALGO!!
-
-    $("#html-area").on("change keyup paste", function () {
-        updateOutput();
-    });
- */
+/* eslint-disable no-unused-vars, no-undef */
 
 const conceptoValues = [
     "0. El Aventurero",
