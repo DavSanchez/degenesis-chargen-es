@@ -971,44 +971,87 @@
         <hr class="my-4">
         <!-- Equipment -->
         <div id="equipment">
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-12 text-center">
                     <h2>EQUIPO</h2>
                 </div>
-            </div>
+            </div> -->
             <div class="row" id="weapons">
                 <div class="col text-uppercase">
                     <table class="table table-hover table-sm">
                         <thead>
                             <tr>
-                                <th>
+                                <th scope="col" class="col-3">
+                                    Arma
+                                </th>
+                                <th scope="col" class="col-1">
+                                    Habilidad
+                                </th>
+                                <th scope="col" class="col-1">
+                                    Manejo
+                                </th>
+                                <th scope="col" class="col-1">
+                                    Distancia*
+                                </th>
+                                <th scope="col" class="col-1">
+                                    Daño
+                                </th>
+                                <th scope="col" class="col-1">
+                                    Cargas
+                                </th>
+                                <th scope="col" class="col-4">
+                                    Propiedades
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th>
-
+                                <th scope="row">
+                                    <input class="form-control form-control-sm text-uppercase" type="text" placeholder="Arma 1" id="weapon1-name">
                                 </th>
                                 <td>
-
+                                    <select class="form-control form-control-sm custom-select custom-select-sm" id="weapon1-attack">
+                                        <option value="brawl">PELEA</option>
+                                        <option value="melee">CUERPO A CUERPO</option>
+                                        <option value="projectiles">PROYECTILES</option>
                                 </td>
+                                <td><input class="form-control form-control-sm" type="number" id="weapon1-handling"></td>
+                                <td><input class="form-control form-control-sm" type="number" id="weapon1-distance"></td>
+                                <td><input class="form-control form-control-sm" type="number" id="weapon1-damage"></td>
+                                <td><input class="form-control form-control-sm" type="number" id="weapon1-charges"></td>
+                                <td><input class="form-control form-control-sm text-uppercase" type="text" id="weapon1-properties"></td>
                             </tr>
                             <tr>
-                                <th>
-
+                                <th scope="row">
+                                    <input class="form-control form-control-sm text-uppercase" type="text" placeholder="Arma 2" id="weapon2-name">
                                 </th>
                                 <td>
-
+                                    <select class="form-control form-control-sm custom-select custom-select-sm" id="weapon2-attack">
+                                        <option value="brawl">PELEA</option>
+                                        <option value="melee">CUERPO A CUERPO</option>
+                                        <option value="projectiles">PROYECTILES</option>
                                 </td>
+                                <td><input class="form-control form-control-sm" type="number" id="weapon2-handling"></td>
+                                <td><input class="form-control form-control-sm" type="number" id="weapon2-distance"></td>
+                                <td><input class="form-control form-control-sm" type="number" id="weapon2-damage"></td>
+                                <td><input class="form-control form-control-sm" type="number" id="weapon2-charges"></td>
+                                <td><input class="form-control form-control-sm text-uppercase" type="text" id="weapon2-properties"></td>
                             </tr>
                             <tr>
-                                <th>
-
+                                <th scope="row">
+                                    <input class="form-control form-control-sm text-uppercase" type="text" placeholder="Arma 3" id="weapon3-name">
                                 </th>
                                 <td>
-
+                                    <select class="form-control form-control-sm custom-select custom-select-sm" id="weapon3-attack">
+                                        <option value="brawl">PELEA</option>
+                                        <option value="melee">CUERPO A CUERPO</option>
+                                        <option value="projectiles">PROYECTILES</option>
                                 </td>
+                                <td><input class="form-control form-control-sm" type="number" id="weapon3-handling"></td>
+                                <td><input class="form-control form-control-sm" type="number" id="weapon3-distance"></td>
+                                <td><input class="form-control form-control-sm" type="number" id="weapon3-damage"></td>
+                                <td><input class="form-control form-control-sm" type="number" id="weapon3-charges"></td>
+                                <td><input class="form-control form-control-sm text-uppercase" type="text" id="weapon3-properties"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -1019,26 +1062,37 @@
                     <table class="table table-hover table-sm">
                         <thead>
                             <tr>
-                                <th>
+                                <th scope="col" class="col-4">
+                                    Protección
+                                </th>
+                                <th scope="col" class="col-2">
+                                    Valor
+                                </th>
+                                <th scope="col" class="col-2">
+                                    Defensa
+                                </th>
+                                <th scope="col" class="col-4">
+                                    Propiedades
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th>
-
+                                <th scope="row">
+                                    <input class="form-control form-control-sm text-uppercase" type="text" placeholder="Protección 1" id="protection1-name">
                                 </th>
-                                <td>
+                                <td><input class="form-control form-control-sm" type="number" id="protection1-armor"></td>
+                                <td><input class="form-control form-control-sm" type="number" id="protection1-defense"></td>
+                                <td><input class="form-control form-control-sm" type="text" id="protection1-properties"></td>
 
-                                </td>
                             </tr>
                             <tr>
-                                <th>
-
+                                <th scope="row">
+                                    <input class="form-control form-control-sm text-uppercase" type="text" placeholder="Protección 2" id="protection2-name">
                                 </th>
-                                <td>
-
-                                </td>
+                                <td><input class="form-control form-control-sm" type="number" id="protection2-armor"></td>
+                                <td><input class="form-control form-control-sm" type="number" id="protection2-defense"></td>
+                                <td><input class="form-control form-control-sm" type="text" id="protection2-properties"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -1046,6 +1100,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </form>

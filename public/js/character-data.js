@@ -92,11 +92,11 @@ class DegenesisChar {
             pot6: new Potential("", 0)
         }
         this.weapons = {
-            weapon1: new Weapon("", "", 0, 0, 0, "", 0, 0, 0),
-            weapon2: new Weapon("", "", 0, 0, 0, "", 0, 0, 0),
-            weapon3: new Weapon("", "", 0, 0, 0, "", 0, 0, 0)
+            weapon1: new Weapon("", "", 0, 0, 0, 0, 0, "", 0, 0, 0, 0),
+            weapon2: new Weapon("", "", 0, 0, 0, 0, 0, "", 0, 0, 0, 0),
+            weapon3: new Weapon("", "", 0, 0, 0, 0, 0, "", 0, 0, 0, 0)
         }
-        this.protection = {
+        this.protections = {
             protection1: new Protection("", 0, 0, "", 0, 0, 0),
             protection2: new Protection("", 0, 0, "", 0, 0, 0)
         }
@@ -129,6 +129,8 @@ class Weapon {
     constructor(
         name,
         attackType,
+        handling,
+        actionNumber,
         distance,
         damage,
         mag,
@@ -139,6 +141,8 @@ class Weapon {
     ) {
         this.name = name
         this.attackType = attackType
+        this.handling = handling
+        this.actionNumber = actionNumber
         this.distance = distance
         this.damage = damage
         this.mag = mag
