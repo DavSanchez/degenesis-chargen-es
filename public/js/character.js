@@ -114,30 +114,36 @@ const updateWeapon = weapon => {
         id(weapon.toString() + "-distance").value
     )
 
-    // DAMAGE CALCULATION
-    let damageInput = id(weapon.toString() + "-damage").value.replace(
-        /\s*/gi,
-        ""
-    )
-
-    let forceOp = damageInput.match(/f{1}[+\-/*]\d+|f{1}/i)
-    console.log("valor capturado de operador de Fuerza: " + forceOp)
-
-    if (forceOp !== null) {
-        forceOp = forceOp[0].replace(
-            /f{1}/i,
-            `${localCharacter["bodyAttr"]["body"] +
-                localCharacter["bodyAttr"]["force"]}`
+    // DAMAGE CALCULATION: TODO NEED A FIX!! Check https://www.regexpal.com/
+    let damageRegEx = /\d*\s*\+{1}\s*[fF]{1}\s*[+\-*/]{1}\s*\d+|[fF]{1}\s*[+\-*/]{1}\s*\d+|\d+\s*[+]{1}\s*[fF]{1}|[fF]{1}|\d+/i
+    if (id(weapon.toString() + "-damage").value.match(damageRegEx)) {
+        console.log("condición RegEx cumplida...")
+        let damageInput = id(weapon.toString() + "-damage").value.replace(
+            /\s*/gi,
+            ""
         )
-        damageInput = damageInput.replace(/f{1}[+\-/*]\d+|f{1}/i, "")
-        forceOp = Number(eval(forceOp))
-        localCharacter["weapons"][weapon].damage = Math.ceil(
-            eval(Number(damageInput.match(/\d+/)[0]) + forceOp)
-        )
+
+        let forceOp = damageInput.match(/f{1}[+\-/*]\d+|f{1}/i)
+        //console.log("valor capturado de operador de Fuerza: " + forceOp)
+
+        if (forceOp !== null) {
+            forceOp = forceOp[0].replace(
+                /f{1}/i,
+                `${localCharacter["bodyAttr"]["body"] +
+                    localCharacter["bodyAttr"]["force"]}`
+            )
+            damageInput = damageInput.replace(/f{1}[+\-/*]\d+|f{1}/i, "")
+            forceOp = Number(eval(forceOp))
+            localCharacter["weapons"][weapon].damage = Math.ceil(
+                eval(Number(damageInput.match(/\d+/)) + forceOp)
+            )
+        } else {
+            localCharacter["weapons"][weapon].damage = Number(
+                damageInput.match(/\d+/)
+            )
+        }
     } else {
-        localCharacter["weapons"][weapon].damage = Number(
-            damageInput.match(/\d+/)
-        )
+        localCharacter["weapons"][weapon].damage = 0
     }
 
     localCharacter["weapons"][weapon].charges = Number(
