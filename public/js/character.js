@@ -120,7 +120,7 @@ const updateWeapon = weapon => {
         ""
     )
 
-    let forceOp = damageInput.match(/f{1}[+\-*/]{0,1}\d*/i)
+    let forceOp = damageInput.match(/f{1}[+\-*/]{1}\d+|f{1}/i)
     console.log("valor capturado de operador de Fuerza: " + forceOp)
 
     if (forceOp !== null) {
