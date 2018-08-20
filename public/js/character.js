@@ -113,9 +113,34 @@ const updateWeapon = weapon => {
     localCharacter["weapons"][weapon].distance = Number(
         id(weapon.toString() + "-distance").value
     )
-    localCharacter["weapons"][weapon].damage = Number(
-        id(weapon.toString() + "-damage").value
+
+    // DAMAGE CALCULATION
+    let damageInput = id(weapon.toString() + "-damage").value.replace(
+        /\s*/gi,
+        ""
     )
+
+    let forceOp = damageInput.match(/f{1}[+\-*/]{0,1}\d*/i)
+    console.log("valor capturado de operador de Fuerza: " + forceOp)
+
+    if (forceOp !== null) {
+        forceOp = forceOp[0].replace(
+            /f{1}/i,
+            `${localCharacter["bodyAttr"]["body"] +
+                localCharacter["bodyAttr"]["force"]}`
+        )
+        console.log("Operador con Fuerza: " + forceOp)
+        forceOp = Number(eval(forceOp))
+        console.log("Operador con Fuerza final: " + forceOp)
+        localCharacter["weapons"][weapon].damage = Math.ceil(
+            eval(Number(damageInput.match(/\d+/)[0]) + forceOp)
+        )
+    } else {
+        localCharacter["weapons"][weapon].damage = Number(
+            damageInput.match(/\d+/)
+        )
+    }
+
     localCharacter["weapons"][weapon].charges = Number(
         id(weapon.toString() + "-charges").value
     )
