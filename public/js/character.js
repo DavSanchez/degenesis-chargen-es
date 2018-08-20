@@ -129,9 +129,8 @@ const updateWeapon = weapon => {
             `${localCharacter["bodyAttr"]["body"] +
                 localCharacter["bodyAttr"]["force"]}`
         )
-        console.log("Operador con Fuerza: " + forceOp)
+        damageInput = damageInput.replace(/f{1}[+\-/*]\d+|f{1}/i, "")
         forceOp = Number(eval(forceOp))
-        console.log("Operador con Fuerza final: " + forceOp)
         localCharacter["weapons"][weapon].damage = Math.ceil(
             eval(Number(damageInput.match(/\d+/)[0]) + forceOp)
         )
