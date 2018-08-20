@@ -120,7 +120,7 @@ const updateWeapon = weapon => {
         ""
     )
 
-    let forceOp = damageInput.match(/f{1}[+\-*/]{1}\d+|f{1}/i)
+    let forceOp = damageInput.match(/f{1}[+\-/*]\d+|f{1}/i)
     console.log("valor capturado de operador de Fuerza: " + forceOp)
 
     if (forceOp !== null) {
@@ -251,56 +251,57 @@ const outputDefense = e => {
               localCharacter.psycheAttr.willpower
             : localCharacter.psycheAttr.psyche + localCharacter.psycheAttr.faith
     let brawl = localCharacter.bodyAttr.body + localCharacter.bodyAttr.brawl
-    let brawlHandling = []
     let melee = localCharacter.bodyAttr.body + localCharacter.bodyAttr.melee
-    let meleeHandling = []
     let mobility =
         localCharacter.agilityAttr.agility + localCharacter.agilityAttr.mobility
     let shieldBonus = 0
+    let defense = [
+        {
+            type: "mobility",
+            actionNumber: mobility
+        }
+    ]
 
     // CALCULATE THE MAX VALUE BETWEEN MELEE + MELEE WEAPONS, BRAWL + BRAWL WEAPONS or MOBILITY
     for (let key in localCharacter["weapons"]) {
         switch (localCharacter["weapons"][key].attackType) {
         case "melee":
-            meleeHandling.push(
-                Number(localCharacter["weapons"][key].handling)
-            )
+            defense.push({
+                type: "melee",
+                actionNumber:
+                        melee + localCharacter["weapons"][key].handling
+            })
             break
         case "brawl":
-            brawlHandling.push(
-                Number(localCharacter["weapons"][key].handling)
-            )
+            defense.push({
+                type: "brawl",
+                actionNumber:
+                        brawl + localCharacter["weapons"][key].handling
+            })
             break
         default:
             break
         }
     }
-    let attack = melee + Math.max(...meleeHandling)
-    let meleeDefense = "Bloqueo"
 
-    if (
-        brawl + Math.max(...brawlHandling) >
-        melee + Math.max(...meleeHandling)
-    ) {
-        attack = brawl + Math.max(...brawlHandling)
-    }
-    if (melee + Math.max(...meleeHandling) < mobility) {
-        meleeDefense = "Esquiva"
-        attack = mobility
-    }
+    defense = defense.sort((a, b) => b.actionNumber - a.actionNumber)
 
-    // ¿HAY ESCUDO?
+    // ANY SHIELDS?
     for (let key in localCharacter["protections"]) {
         if (
             localCharacter["protections"][key].name !== "" &&
             localCharacter["protections"][key].defense > shieldBonus
         ) {
+            // WE KEEP THE HIGHEST BONUS
             shieldBonus += localCharacter["protections"][key].defense
         }
     }
 
+    let defenseType = "Bloqueo"
+    if (defense[0].type === "mobility") defenseType = "Esquiva"
+
     // prettier-ignore
-    return `<b>DEFENSA:</b> <span class="text-capitalize" id="out-defense">Pasiva 1; Activa cuerpo a cuerpo (${meleeDefense}), ${attack + shieldBonus}D; Activa a distancia, Movilidad ${mobility + shieldBonus}D; Mental (${faithOrWill}) ${faithOrWillValue}D</span><br>`
+    return `<b>DEFENSA:</b> <span class="text-capitalize" id="out-defense">Pasiva 1; Activa cuerpo a cuerpo (${defenseType}), ${defense[0].actionNumber + shieldBonus}D; Activa a distancia, Movilidad ${mobility + shieldBonus}D; Mental (${faithOrWill}) ${faithOrWillValue}D</span><br>`
 }
 
 // THIS IS AN UTTER MESS THAT WELL DESERVES A SECOND TRY
