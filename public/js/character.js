@@ -187,13 +187,17 @@ const outputAttacks = e => {
     let output = []
     let attackActionNumber = 0
     let chargesString = ""
+    let properties = ""
     for (let key in localCharacter["weapons"]) {
         if (localCharacter["weapons"][key].name !== "") {
             attackActionNumber = localCharacter["weapons"][key].actionNumber
             if (localCharacter["weapons"][key].charges > 0) {
-                chargesString = `, ${
+                chargesString = `, Cargas: ${
                     localCharacter["weapons"][key].charges
-                } Cargas`
+                }`
+            }
+            if (localCharacter["weapons"][key].properties !== "") {
+                properties = ` (${localCharacter["weapons"][key].properties})`
             }
             output.push(
                 `${
@@ -202,7 +206,7 @@ const outputAttacks = e => {
                     localCharacter["weapons"][key].distance
                 }m, Daño ${
                     localCharacter["weapons"][key].damage
-                }${chargesString}`
+                }${chargesString}${properties}`
             )
         }
     }
@@ -262,34 +266,50 @@ const outputDefense = e => {
 
     // ¿HAY ESCUDO?
     for (let key in localCharacter["protections"]) {
-        if (localCharacter["protections"][key].defense > shieldBonus) {
+        if (
+            localCharacter["protections"][key].name !== "" &&
+            localCharacter["protections"][key].defense > shieldBonus
+        ) {
             shieldBonus += localCharacter["protections"][key].defense
         }
     }
 
     // prettier-ignore
-    return `<b>DEFENSA:</b> <span class="text-capitalize" id="out-defense">Pasiva 1; Activa cuerpo a cuerpo (${meleeDefense}), ${attack + shieldBonus}D; Activa a distancia, Movilidad ${localCharacter.agilityAttr.mobility + shieldBonus}D; Mental (${faithOrWill}) ${faithOrWillValue}D</span><br>`
+    return `<b>DEFENSA:</b> <span class="text-capitalize" id="out-defense">Pasiva 1; Activa cuerpo a cuerpo (${meleeDefense}), ${attack + shieldBonus}D; Activa a distancia, Movilidad ${mobility + shieldBonus}D; Mental (${faithOrWill}) ${faithOrWillValue}D</span><br>`
 }
 
-// TODO
+// THIS IS AN UTTER MESS THAT WELL DESERVES A SECOND TRY
 const outputProtections = e => {
-    let protections = [{
-        name: "Nada",
-        armor: 0
-    }]
+    let protections = [{ name: "Nada", armor: 0 }]
+    let protectionString = ""
+    let protectionArmor = 0
 
     for (let key in localCharacter["protections"]) {
         if (localCharacter["protections"][key].name !== "") {
-            protections.push({name: localCharacter["protections"][key].name, armor: localCharacter["protections"][key].armor})
+            protections.push({
+                name: localCharacter["protections"][key].name,
+                armor: localCharacter["protections"][key].armor
+            })
         }
     }
-    protectionFinal =
-        Math.max(protections) >= 4
-            ? Math.max(protections)
-            : protections.reduce((a, b) => a + b, 0)
+
+    protections.sort((a, b) => b.armor - a.armor)
+
+    protectionString = protections[0].name
+    protectionArmor = protections[0].armor
+
+    if (protectionArmor < 4) {
+        for (let i = 1; i < protections.length; i++) {
+            if (protections[i].name !== "" && protections[i].armor) {
+                protectionString += `, ${protections[i].name}`
+                protectionArmor++
+            }
+            if (protectionArmor >= 4) break
+        }
+    }
 
     // prettier-ignore
-    return `<b>PROTECCIÓN:</b> <span class="text-capitalize" id="out-protection">${protections.name}; Armadura ${protections.value}</span><br>`
+    return `<b>PROTECCIÓN:</b> <span class="text-capitalize" id="out-protection">${protectionString ? protectionString : "Nada"}; Armadura ${protectionArmor ? protectionArmor : 0}</span><br>`
 }
 
 const writeOutput = e => {
