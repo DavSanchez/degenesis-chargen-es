@@ -115,9 +115,10 @@ const updateWeapon = weapon => {
     )
 
     // DAMAGE CALCULATION: TODO NEED A FIX!! Check https://www.regexpal.com/
-    let damageRegEx = /\d*\s*\+{1}\s*[fF]{1}\s*[+\-*/]{1}\s*\d+|[fF]{1}\s*[+\-*/]{1}\s*\d+|\d+\s*[+]{1}\s*[fF]{1}|[fF]{1}|\d+/i
-    if (id(weapon.toString() + "-damage").value.match(damageRegEx)) {
+    let damageRegEx = /\d*\s*\+{1}\s*f{1}\s*[+\-*/]{1}\s*\d+|f{1}\s*[+\-*/]{1}\s*\d+|\d+\s*[+]{1}\s*f{1}|f{1}|\d+/i
+    if (damageRegEx.test(id(weapon.toString() + "-damage").value)) {
         console.log("condición RegEx cumplida...")
+        // REMOVE SPACING
         let damageInput = id(weapon.toString() + "-damage").value.replace(
             /\s*/gi,
             ""
@@ -135,11 +136,11 @@ const updateWeapon = weapon => {
             damageInput = damageInput.replace(/f{1}[+\-/*]\d+|f{1}/i, "")
             forceOp = Number(eval(forceOp))
             localCharacter["weapons"][weapon].damage = Math.ceil(
-                eval(Number(damageInput.match(/\d+/)) + forceOp)
+                eval(Number(damageInput.search(/\d+/)) + forceOp)
             )
         } else {
             localCharacter["weapons"][weapon].damage = Number(
-                damageInput.match(/\d+/)
+                damageInput.search(/\d+/)
             )
         }
     } else {
