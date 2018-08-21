@@ -114,7 +114,7 @@ const updateWeapon = weapon => {
         id(weapon.toString() + "-distance").value
     )
 
-    // DAMAGE CALCULATION: Definitive RegEx?
+    // DAMAGE CALCULATION: Definitive RegEx
 
     /* RegEx tested with https://regexr.com/34fku */
     /* eslint-disable no-useless-escape */
