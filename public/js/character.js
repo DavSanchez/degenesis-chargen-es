@@ -116,12 +116,15 @@ const updateWeapon = weapon => {
 
     // DAMAGE CALCULATION: Definitive RegEx?
 
+    /* RegEx tested with https://regexr.com/34fku */
+    /* eslint-disable no-useless-escape */
     const damageRegEx = /^f{1}\s*[\-\+\*\/]{1}\s*\d+$|^\d+\s*[\-\+\*\/]{1}\s*f{1}\s*$|^\d+\s*$|^f{1}$|^\d+\s*[\-\+\*\/]{1}\s*f{1}\s*[\-\+\*\/]{1}\d+$/i
+    /* eslint-enable no-useless-escape */
+
     let damageInput = id(weapon.toString() + "-damage").value
 
     if (damageRegEx.test(damageInput)) {
         localCharacter["weapons"][weapon].damage = damageInput
-
     } else {
         localCharacter["weapons"][weapon].damage = "-"
     }
@@ -199,7 +202,12 @@ const outputAttacks = e => {
     let chargesString = ""
     let properties = ""
     let damage = "-"
+
+    /* RegEx tested with https://regexr.com/34fku */
+    /* eslint-disable no-useless-escape */
     const damageRegEx = /^f{1}\s*[\-\+\*\/]{1}\s*\d+$|^\d+\s*[\-\+\*\/]{1}\s*f{1}\s*$|^\d+\s*$|^f{1}$|^\d+\s*[\-\+\*\/]{1}\s*f{1}\s*[\-\+\*\/]{1}\d+$/i
+    /* eslint-enable no-useless-escape */
+
     for (let key in localCharacter["weapons"]) {
         if (localCharacter["weapons"][key].name !== "") {
             attackActionNumber = localCharacter["weapons"][key].actionNumber
@@ -212,7 +220,15 @@ const outputAttacks = e => {
                 properties = ` (${localCharacter["weapons"][key].properties})`
             }
             if (damageRegEx.test(localCharacter["weapons"][key].damage)) {
-                damage = Math.ceil(eval(localCharacter["weapons"][key].damage.replace(/f{1}/i,`(${localCharacter.bodyAttr.body + localCharacter.bodyAttr.force})`)))
+                damage = Math.ceil(
+                    eval(
+                        localCharacter["weapons"][key].damage.replace(
+                            /f{1}/i,
+                            `(${localCharacter.bodyAttr.body +
+                                localCharacter.bodyAttr.force})`
+                        )
+                    )
+                )
             }
             output.push(
                 `${
