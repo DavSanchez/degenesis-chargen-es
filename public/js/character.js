@@ -115,7 +115,7 @@ const updateWeapon = weapon => {
     )
 
     // DAMAGE CALCULATION: TODO NEED A FIX!! Check https://www.regexpal.com/
-    let damageRegEx = /\d*\s*\+{1}\s*f{1}\s*[+\-*/]{1}\s*\d+|f{1}\s*[+\-*/]{1}\s*\d+|\d+\s*[+]{1}\s*f{1}|f{1}|\d+/i
+    const damageRegEx = /^f{1}\s*[\-\+\*\/]{1}\s*\d+$|^\d+\s*[\-\+\*\/]{1}\s*f{1}\s*$|^\d+\s*$|^f{1}$|^\d+\s*[\-\+\*\/]{1}\s*f{1}\s*[\-\+\*\/]{1}\d+$/i // Definitive??
     if (damageRegEx.test(id(weapon.toString() + "-damage").value)) {
         console.log("condición RegEx cumplida...")
         // REMOVE SPACING
