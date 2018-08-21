@@ -114,37 +114,16 @@ const updateWeapon = weapon => {
         id(weapon.toString() + "-distance").value
     )
 
-    // DAMAGE CALCULATION: TODO NEED A FIX!! Check https://www.regexpal.com/
-    const damageRegEx = /^f{1}\s*[\-\+\*\/]{1}\s*\d+$|^\d+\s*[\-\+\*\/]{1}\s*f{1}\s*$|^\d+\s*$|^f{1}$|^\d+\s*[\-\+\*\/]{1}\s*f{1}\s*[\-\+\*\/]{1}\d+$/i // Definitive??
-    if (damageRegEx.test(id(weapon.toString() + "-damage").value)) {
-        console.log("condición RegEx cumplida...")
-        // REMOVE SPACING
-        let damageInput = id(weapon.toString() + "-damage").value.replace(
-            /\s*/gi,
-            ""
-        )
+    // DAMAGE CALCULATION: Definitive RegEx?
 
-        let forceOp = damageInput.match(/f{1}[+\-/*]\d+|f{1}/i)
-        //console.log("valor capturado de operador de Fuerza: " + forceOp)
+    const damageRegEx = /^f{1}\s*[\-\+\*\/]{1}\s*\d+$|^\d+\s*[\-\+\*\/]{1}\s*f{1}\s*$|^\d+\s*$|^f{1}$|^\d+\s*[\-\+\*\/]{1}\s*f{1}\s*[\-\+\*\/]{1}\d+$/i
+    let damageInput = id(weapon.toString() + "-damage").value
 
-        if (forceOp !== null) {
-            forceOp = forceOp[0].replace(
-                /f{1}/i,
-                `${localCharacter["bodyAttr"]["body"] +
-                    localCharacter["bodyAttr"]["force"]}`
-            )
-            damageInput = damageInput.replace(/f{1}[+\-/*]\d+|f{1}/i, "")
-            forceOp = Number(eval(forceOp))
-            localCharacter["weapons"][weapon].damage = Math.ceil(
-                eval(Number(damageInput.search(/\d+/)) + forceOp)
-            )
-        } else {
-            localCharacter["weapons"][weapon].damage = Number(
-                damageInput.search(/\d+/)
-            )
-        }
+    if (damageRegEx.test(damageInput)) {
+        localCharacter["weapons"][weapon].damage = damageInput
+
     } else {
-        localCharacter["weapons"][weapon].damage = 0
+        localCharacter["weapons"][weapon].damage = "-"
     }
 
     localCharacter["weapons"][weapon].charges = Number(
@@ -219,6 +198,8 @@ const outputAttacks = e => {
     let attackActionNumber = 0
     let chargesString = ""
     let properties = ""
+    let damage = "-"
+    const damageRegEx = /^f{1}\s*[\-\+\*\/]{1}\s*\d+$|^\d+\s*[\-\+\*\/]{1}\s*f{1}\s*$|^\d+\s*$|^f{1}$|^\d+\s*[\-\+\*\/]{1}\s*f{1}\s*[\-\+\*\/]{1}\d+$/i
     for (let key in localCharacter["weapons"]) {
         if (localCharacter["weapons"][key].name !== "") {
             attackActionNumber = localCharacter["weapons"][key].actionNumber
@@ -230,14 +211,15 @@ const outputAttacks = e => {
             if (localCharacter["weapons"][key].properties !== "") {
                 properties = ` (${localCharacter["weapons"][key].properties})`
             }
+            if (damageRegEx.test(localCharacter["weapons"][key].damage)) {
+                damage = Math.ceil(eval(localCharacter["weapons"][key].damage.replace(/f{1}/i,`(${localCharacter.bodyAttr.body + localCharacter.bodyAttr.force})`)))
+            }
             output.push(
                 `${
                     localCharacter["weapons"][key].name
                 }, ${attackActionNumber}D, Distancia ${
                     localCharacter["weapons"][key].distance
-                }m, Daño ${
-                    localCharacter["weapons"][key].damage
-                }${chargesString}${properties}`
+                }m, Daño ${damage}${chargesString}${properties}`
             )
         }
     }
