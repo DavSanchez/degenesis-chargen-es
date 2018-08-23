@@ -3,10 +3,19 @@
   border: 1px solid black;
 } */
 
-/* true styling */
+/* begin styling */
 select.form-control.numeric {
   width: max-content;
 }
+
+/* TABLE ADJUSTMENTS FOR SAFARI AND CHROME */
+#armor-table-prot, #armor-table-props {
+  width: 33%;
+}
+#armor-table-armor, #armor-table-def {
+  width: 16.5%;
+}
+/* END TABLE ADJUSTMENTS */
 
 #text-area {
   width: 100%;
@@ -36,6 +45,7 @@ label.CCC {
   }
 }
 
+/* The one in the navbar */
 @media (max-width: 1200px) {
   .result-button {
     display: inline-block;

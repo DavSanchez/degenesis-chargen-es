@@ -1061,21 +1061,13 @@
             </div>
             <div class="row" id="armor">
                 <div class="col text-uppercase">
-                    <table class="table table-hover table-sm table-responsive-md">
+                    <table class="table table-hover table-sm table-responsive-md" id="armor-table">
                         <thead>
                             <tr>
-                                <th scope="col" class="col-4">
-                                    Protección
-                                </th>
-                                <th scope="col" class="col-2">
-                                    Valor
-                                </th>
-                                <th scope="col" class="col-2">
-                                    Defensa
-                                </th>
-                                <th scope="col" class="col-4">
-                                    Propiedades
-                                </th>
+                                <th scope="col" class="col-4 armor-header" id="armor-table-prot">Protección</th>
+                                <th scope="col" class="col-2 numeric" id="armor-table-armor">Valor</th>
+                                <th scope="col" class="col-2 numeric" id="armor-table-def">Defensa</th>
+                                <th scope="col" class="col-4" id="armor-table-props">Propiedades</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1085,7 +1077,7 @@
                                 </th>
                                 <td><input class="form-control form-control-sm" type="number" id="protection1-armor"></td>
                                 <td><input class="form-control form-control-sm" type="number" id="protection1-defense"></td>
-                                <td><input class="form-control form-control-sm" type="text" id="protection1-properties"></td>
+                                <td><input class="form-control form-control-sm text-uppercase" type="text" id="protection1-properties"></td>
 
                             </tr>
                             <tr>
@@ -1094,11 +1086,10 @@
                                 </th>
                                 <td><input class="form-control form-control-sm" type="number" id="protection2-armor"></td>
                                 <td><input class="form-control form-control-sm" type="number" id="protection2-defense"></td>
-                                <td><input class="form-control form-control-sm" type="text" id="protection2-properties"></td>
+                                <td><input class="form-control form-control-sm text-uppercase" type="text" id="protection2-properties"></td>
                             </tr>
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
