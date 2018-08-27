@@ -168,7 +168,7 @@ const outputOrigins = e => {
     for (let key in localCharacter["origins"]) {
         // prettier-ignore
         if (localCharacter["origins"][key]) {
-            output.push(`${skillsSpanish[key]} ${localCharacter["origins"][key]}D`)
+            output.push(`${skillsSpanish[key]} ${localCharacter["origins"][key]}`)
         }
     }
 
