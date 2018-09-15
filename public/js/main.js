@@ -89,7 +89,7 @@ window.onload = () => {
     primalValue.disabled = true
     primalValue.value = ""
 
-    addListenerMulti(document.getElementById("charsheet-form"), "change keyup paste", updateLocalCharacter)
+    addListenerMulti(document.getElementById("charsheet-form"), "change keyup paste", debounce(updateLocalCharacter,500,false))
 }
 
 const checkAttributeSelectors = elem => {
@@ -135,4 +135,20 @@ const checkAttributeSelectors = elem => {
 // Multiple event listeners without jQuery
 function addListenerMulti(element, events, func) {
     events.split(" ").forEach(e => element.addEventListener(e, func, false))
+}
+
+// Debounce function for rapid key presses
+function debounce(func, wait, immediate) {
+    var timeout
+    return () => {
+        var context = this
+        var args = arguments
+        var callNow = immediate && !timeout
+        clearTimeout(timeout)
+        timeout = setTimeout(() => {
+            timeout = null
+            if (!immediate) func.apply(context, args)
+        }, wait)
+        if (callNow) func.apply(context,args)
+    }
 }
